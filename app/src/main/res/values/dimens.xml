@@ -1,0 +1,60 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="d200">180dp</dimen>
+    <dimen name="d240">240dp</dimen>
+    <dimen name="d70">70dp</dimen>
+    <dimen name="d60">60dp</dimen>
+    <dimen name="d25">25dp</dimen>
+    <dimen name="d150">150dp</dimen>
+    <dimen name="d120">120dp</dimen>
+    <dimen name="d90">75dp</dimen>
+    <dimen name="width_slide_menu">340dp</dimen>
+    <dimen name="text_login_facebook">12sp</dimen>
+    <dimen name="text30">30sp</dimen>
+    <dimen name="d300">300dp</dimen>
+    <dimen name="d250">250dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="item_vid_w">180dp</dimen>
+    <dimen name="item_vid_h">180dp</dimen>
+    <dimen name="item_vid_first_h">170dp</dimen>
+    <dimen name="item_vid_preview">90dp</dimen>
+    <dimen name="item_vid_margin5">5dp</dimen>
+    <dimen name="item_vid_margin10">10dp</dimen>
+    <dimen name="item_vid_margin20">20dp</dimen>
+    <dimen name="keyboard_height">220dp</dimen>
+
+    <dimen name="size_avarta">180dp</dimen>
+
+    <dimen name="back_icon_width">40dp</dimen>
+    <dimen name="back_icon_height">40dp</dimen>
+
+    <dimen name="text16">14sp</dimen>
+    <dimen name="text14">12sp</dimen>
+    <dimen name="text18">16sp</dimen>
+    <dimen name="text12">10sp</dimen>
+    <dimen name="text10">6sp</dimen>
+    <dimen name="text8">6sp</dimen>
+    <dimen name="text20">20sp</dimen>
+
+    <dimen name="d40">35dp</dimen>
+    <dimen name="d50">42dp</dimen>
+    <dimen name="d100">85dp</dimen>
+    <dimen name="d30">25dp</dimen>
+    <dimen name="d7">5dp</dimen>
+    <dimen name="d10">8dp</dimen>
+    <dimen name="d12">10dp</dimen>
+    <dimen name="d15">13dp</dimen>
+    <dimen name="d45">41dp</dimen>
+    <dimen name="d2">2dp</dimen>
+    <dimen name="d20">17dp</dimen>
+    <dimen name="d5">3dp</dimen>
+    <dimen name="d8">5dp</dimen>
+    <dimen name="d80">70dp</dimen>
+    <dimen name="d3">3dp</dimen>
+</resources>

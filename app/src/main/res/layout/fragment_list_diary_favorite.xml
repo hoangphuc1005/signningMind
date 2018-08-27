@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorWhite"
+    android:paddingLeft="@dimen/d20"
+    android:paddingRight="@dimen/d20">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_marginBottom="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerDiary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <RelativeLayout
+                android:id="@+id/rlAddDiary"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@id/recyclerDiary"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/d20"
+                android:background="@drawable/bg_add_today_diary">
+
+                <TextView
+                    android:id="@+id/tvToday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/d10"
+                    android:text="HOM NAY"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/text16" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:layout_toRightOf="@id/tvToday"
+                    android:src="@drawable/ic_btnaddd" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/lnMonthDiary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/d20"
+        android:layout_marginLeft="@dimen/d20"
+        android:layout_marginRight="@dimen/d20"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <RelativeLayout
+            android:id="@+id/rlAddMonthDiary"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:layout_marginRight="@dimen/d30"
+            android:layout_weight="1"
+            android:background="@drawable/bg_add_today_diary">
+
+            <ImageView
+                android:id="@+id/imgMonthDiary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/d20"
+                android:src="@drawable/ic_month" />
+
+            <TextView
+                android:id="@+id/tvMonthDiary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/d20"
+                android:layout_toRightOf="@id/imgMonthDiary"
+                android:text="Thang"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text18" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlAddDateDiary"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_date_diary">
+
+            <TextView
+                android:id="@+id/tvDateDiary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:paddingLeft="@dimen/d20"
+                android:text="Ngay"
+                android:textColor="@color/colorGray"
+                android:textSize="@dimen/text18" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/d20"
+                android:layout_toRightOf="@id/tvDateDiary"
+                android:src="@drawable/ic_day" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/lnMonthDiary"
+        android:layout_marginBottom="@dimen/d20"
+        android:background="@color/colorGray" />
+</RelativeLayout>

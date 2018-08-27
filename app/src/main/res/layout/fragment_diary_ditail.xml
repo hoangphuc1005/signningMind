@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/colorRed"
+                android:gravity="center"
+                android:text="thu 4-ngay 6 thang 6 nam 2018"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text18"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d20"
+                android:layout_marginRight="@dimen/d20"
+                android:layout_marginTop="@dimen/d20"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitleDiaryDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:text="Mot ngay gio hoi nhu bao ngay khac"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/text20"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/d60"
+                    android:layout_marginRight="@dimen/d60"
+                    android:layout_marginTop="@dimen/d10"
+                    android:background="@color/color70Gray" />
+
+                <TextView
+                    android:id="@+id/texContentDiaryDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/d20"
+                    android:textColor="@color/colorGray"
+                    android:textSize="@dimen/text18" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imgDeleteDairyDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/d20"
+        android:layout_marginRight="@dimen/d20"
+        android:layout_marginBottom="@dimen/d20"
+        android:src="@drawable/ic_delete_big" />
+</RelativeLayout>

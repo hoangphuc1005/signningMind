@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginLeft="@dimen/d20"
+    android:layout_marginRight="@dimen/d20"
+    android:layout_marginTop="@dimen/d20"
+    android:background="@drawable/bg_date_diary">
+
+    <LinearLayout
+        android:id="@+id/lnDateOfMonthDiary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvMonthDiaryFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6 thang 6"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text16" />
+
+        <TextView
+            android:id="@+id/tvDateDiaryFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d10"
+            android:text="thu 2"
+            android:textAllCaps="true"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/text18"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/d10"
+        android:layout_marginLeft="@dimen/d10"
+        android:layout_marginTop="@dimen/d10"
+        android:layout_toRightOf="@id/lnDateOfMonthDiary"
+        android:background="@color/colorGray" />
+
+    <TextView
+        android:id="@+id/tvTitleDiary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/d20"
+        android:layout_marginRight="@dimen/d50"
+        android:layout_toRightOf="@id/lnDateOfMonthDiary"
+        android:lines="2"
+        android:text="mot ngay nao do "
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text20" />
+
+    <ImageView
+        android:id="@+id/imgDeleteDiary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/lnDateOfMonthDiary"
+        android:layout_marginRight="@dimen/d20"
+        android:src="@drawable/ic_delete_sm" />
+</RelativeLayout>

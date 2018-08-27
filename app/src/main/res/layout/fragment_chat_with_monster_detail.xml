@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/lnChatIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/lnGroupFeeling"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/bg_game_blue"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <LinearLayout
+                android:id="@+id/lnGreatChat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_great" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/d10"
+                    android:text="Tuyệt Vời"
+                    android:textColor="@color/colorGreen204"
+                    android:textSize="@dimen/text12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnGoodChat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_good" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/d10"
+                    android:text="Tốt"
+                    android:textColor="@color/bg_game_yellow"
+                    android:textSize="@dimen/text12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnNormalChat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_bt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/d10"
+                    android:text="Bình Thường"
+                    android:textColor="@color/colorBlue"
+                    android:textSize="@dimen/text12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnBadChat"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_bad" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/d10"
+                    android:text="Xấu"
+                    android:textColor="@color/white_f2"
+                    android:textSize="@dimen/text12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnTerrible"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_awful" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/d10"
+                    android:text="Tồi Tệ"
+                    android:textColor="@color/color70White"
+                    android:textSize="@dimen/text12" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/groupWorked"
+            layout="@layout/custom_chat_do_work_with_monster"
+            android:visibility="gone" />
+    </LinearLayout>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/lnChatIcon">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/lnChatMonster"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_chat"
+                    android:orientation="vertical"
+                    android:padding="@dimen/d30">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/rlHeaderChat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/imgMonster"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_monster" />
+
+                            <TextView
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="@dimen/d10"
+                                android:layout_toRightOf="@id/imgMonster"
+                                android:background="@color/colorWhite"
+                                android:gravity="center"
+                                android:text="Hom nay ban cam thay the nao? "
+                                android:textColor="@color/color_menu" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tvFelling"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/rlHeaderChat"
+                            android:background="@color/colorWhite"
+                            android:gravity="center"
+                            android:text="ToT"
+                            android:textSize="@dimen/text18"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/rlContentChat"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d30"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:id="@+id/imgMonsterDo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_monster" />
+
+                            <TextView
+                                android:layout_width="240dp"
+                                android:layout_height="40dp"
+                                android:layout_marginLeft="@dimen/d10"
+                                android:layout_toRightOf="@id/imgMonsterDo"
+                                android:background="@color/colorWhite"
+                                android:gravity="center"
+                                android:text="Hom nay ban lam nhung gi? "
+                                android:textColor="@color/color_menu" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tvDoWork"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/rlContentChat"
+                            android:background="@color/colorWhite"
+                            android:gravity="center"
+                            android:text="lam view, Thu dan, Tiec tung, Xem phim"
+                            android:textSize="@dimen/text18"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/rlAddText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/d30"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:id="@+id/imgMonsterAddText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_monster" />
+
+                            <TextView
+                                android:layout_width="240dp"
+                                android:layout_height="60dp"
+                                android:layout_marginLeft="@dimen/d10"
+                                android:layout_toRightOf="@id/imgMonsterAddText"
+                                android:background="@color/colorWhite"
+                                android:gravity="center"
+                                android:text="Hom nay dieu gi khien ban cam thay cuoc song  co y nghia? "
+                                android:textColor="@color/color_menu" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:id="@+id/tvDoAddText"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@id/rlAddText"
+                            android:layout_marginTop="@dimen/d20"
+                            android:background="@color/colorWhite"
+                            android:gravity="center"
+                            android:text="lam view, Thu dan, Tiec tung, Xem phim"
+                            android:textSize="@dimen/text18"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+</RelativeLayout>

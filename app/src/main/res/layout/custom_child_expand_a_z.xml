@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/d15"
+    android:layout_marginRight="@dimen/d15"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvChildAZ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/d20"
+        android:text="test  adadad "
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/text18" />
+</LinearLayout>

@@ -1,0 +1,143 @@
+<resources>
+    <string name="app_name">Shining Mind</string>
+    <string-array name="sliding_menu_tv">
+        <item>@string/txt_about</item>
+        <item>@string/txt_guide</item>
+        <item>@string/txt_favorite</item>
+        <item>@string/txt_notification</item>
+    </string-array>
+    <string name="txt_about">Về chúng tôi</string>
+    <string name="txt_guide">Hướng Dẫn</string>
+    <string name="txt_home">Trang chủ </string>
+    <string name="txt_favorite">Bài viết yêu thích</string>
+    <string name="txt_notification">Thông báo</string>
+    <string-array name="sliding_menu_img_icons">
+        <item>@drawable/ic_aboutus</item>
+        <item>@drawable/ic_huongdan</item>
+        <item>@drawable/ic_like</item>
+        <item>@drawable/ic_thongbao</item>
+    </string-array>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="txt_sign_out">Đăng xuất</string>
+    <string name="txt_news_top">Tin hàng đầu</string>
+    <string name="txt_finish">Thoát khỏi ứng dụng</string>
+    <string name="txt_notify_finish">Bạn có muốn thoát khỏi ứng dụng ?</string>
+    <string name="txt_ok">OK</string>
+    <string name="txt_cancel">Cancel</string>
+    <string name="com.appsee.apikey" translatable="false">8b6aafc9150145708522075ecbb4e21a</string>
+    <string name="dummy_title_info_1">Rối loạn lo âu là bệnh gì?</string>
+    <string name="dummy_header_info_1">Lo âu là hiện tượng tự nhiên trong cuộc sống của con người. Tuy nhiên, với người rối loạn lo âu thường có sự lo sợ, lo lắng quá mức về các tình huống sảy ra trong cuộc sống hằng ngày.
+
+➾ Bệnh rối loạn lo âu được hiểu là sự lo lắng thái quá và căng thẳng thường xuyên mà không có lý do rõ ràng. Những trải nghiệm cảm xúc lo lắng, sợ hãi thái quá sẽ ảnh hưởng trực tiếp đến các hoạt động chức năng của cá nhân và cuộc sống của người bệnh.
+
+➾ Rối loạn lo âu được chia ra các dạng: rối loạn lo âu toàn thể, hội chứng sợ xã hội, rối loạn lo âu phân ly và rối loạn đặc hiệu. Một người có thể mắc một hoặc nhiều rối loạn cùng lúc.</string>
+<string name="dummy_last_content"> Triệu chứng của rối loạn lo âu có thể gặp ở mặt cảm xúc như: Người bệnh thường có cảm xúc lo lắng  thái quá, biểu hiện bồn chồn, lo âu về các việc xung quanh mình mà lẽ ra không đáng lo đồng thời cũng giảm sự chú ý, tập trung trong công việc hằng ngày.
+
+Người bệnh thường sợ hãi phí, bị ám ảnh bởi những điều bình thường trong cuộc sống như đám đông, độ cao, động vật.  Lúc nào cũng có cảm giác những điều nguy hiểm sẽ xảy ra với mình. Hay hồi tưởng lại những việc đã qua, đứng ngồi không yên, suy nghĩ nhiều và không thể dừng lại.
+
+➾ Triệu chứng rối loạn lo âu về mặt cơ thể như: Căng cơ, nhịp tim nhanh, rối loạn tiêu hóa, đau dạ dày, có cảm giác hoa mắt chóng mặt, đổ nhiều mồ hôi. Chất lượng giấc ngủ không được đảm bảo, khó ngủ, ngủ hay giật mình,…Khó tập trung, tự nghi ngờ bản thân, không thể kiểm soát sự lo lắng, cơ thể suy nhược,....
+
+
+
+Người bị rối loạn lo âu thường xuyên có suy nghĩ tiêu cực
+
+➾ Tuy nhiên, những triệu chứng rối loạn lo âu về mặt cơ thể rất dễ bị nhầm lẫn với các loại bệnh khác nên thông thường trong giai đoạn đầu người ta khó nhận ra đây là căn bệnh rối loạn lo âu.
+
+➾ Để biết chính xác mình có bị mắc chứng rối loạn lo âu hay không, người bệnh cần đến gặp bác sĩ chuyên khoa khi thấy mình có các dấu hiệu và triệu chứng của bệnh. Không nên chủ quan để lâu, vìn bệnh sẽ ngày càng trở nên nặng nề và vững chắc hơn.
+
+Nguyên nhân dẫn đến rối loạn lo âu và cách chữa bệnh
+
+➱ Theo nghiên cứu rối loạn lo âu có thể là do các chất hóa học trong não như như dopamin, serotonin và norepinephrin gây ra.
+
+➱ Người từng trải qua sang chấn tâm lý, có vấn đề về sức khỏe và lo lắng về tình trạng bệnh của mình sẽ có nguy cơ cao mắc bệnh rối loạn lo âu.
+
+➱ Ngoài ra, nguyên nhân của bệnh còn có thể nằm ở các yếu tố khác như di truyền, môi trường sống, người bị trầm cảm, strees,...
+
+➱ Lạm dụng rượu, chất kích thích, thuốc cũng là nguyên nhân gây rối loạn lo âu.
+
+
+
+Môi trường sống ngột ngạt, stress có thể dẫn đến rối loạn lo âu
+
+☞ Cách điều trị rối loạn lo âu hiện nay chủ yếu là dùng thuốc và tâm lý trị liệu
+
+☞ Thuốc dùng điều trị bệnh thường là các loại thuốc giúp làm giảm lo âu, an thần, gây ngủ; thuốc giúp cơ thể ít nhạy cảm với sự kích thích dài hạn, giãn cơ, chống co giật,...Việc dùng thuốc điều trị người bệnh cần phải tuân theo sự chỉ dẫn của bác sĩ. Tuyệt đối không được tự tiện dùng thuốc, thay đổi liều lượng. Vì thuốc điều trị bệnh lý này rất dễ dẫn đến các vấn đề về thần kinh, phụ thuộc thuốc, tác dụng phụ không tốt đến gan, thận, tim mạch,...
+
+☞ Tâm lý trị liệu được xem là một trong những phương pháp điều trị phổ biến, hiệu quả đối với bệnh rối loạn lo âu. Trị liệu tâm lý sẽ giúp người bệnh nhận thức hành vi tiêu cực và thay thế bằng những hành vi tích cực. Giúp người bệnh giải tỏa căng thẳng để nhẹ nhàng hơn.
+
+☞ Để thoát khỏi bệnh rối loạn lo âu an toàn, không phải sử dụng các loại thuốc Tây y an thần. Các bạn có thể tham khảo các bài thuốc nam trong dân gian, những bài thuốc Đông y có tác dụng tốt trong việc điều trị rối loạn lo âu, an thần, giúp mọi người tĩnh tâm hơn. Hơn hết chi phí điều trị lại khá thấp, an toàn, lành tính từ thiên nhiên giúp khỏe từ bên trong.
+</string>
+    <string name="dummy_title_info_2">STRESS VÀ NHỮNG ĐIỀU BẠN NÊN BIẾT VỀ BỆNH STRESS</string>
+    <string name="dummy_header_info_2">Stress – Một hiện tượng không còn xa lạ với hầu hết người dân Việt Nam. Nhắc đến stress là người ta không khỏi không nghĩ đến sự căng thẳng, mệt mỏi, lo nghĩ…Vậy Stress là gì? Và cách chữa bệnh Stress như thế nào. Tại sao bạn lại thường xuyên bị Stress? Sau đây mời quý vị và cách bạn cùng các chuyên gia của Tư Vân Khỏe đi tìm hiểu về bệnh stress nhé!
+1. Stress là gì?
+– Stress là phản ứng của cơ thể trước bất cứ một yêu cầu, áp lực hay một yếu tố tác động nào đe dọa đến sự tồn tại lành mạnh của con người cả về thể chất lẫn tinh thần.
+– Stress là một khái niệm đa hình.Trong thường ngày chúng ta đều trải nghiệm stress  ở nhiều khía cạnh khác nhau trong các hoạt động của chúng ta:ở trường, ở nhà,  nơi công sở và thậm chí cả trong các hoạt động thể dục thể thao cũng có stress, stress luôn luôn tồn tại quanh ta.</string>
+<string name="last_content_2">– Có thể hiểu đơn giản stress là phản ứng của cơ thể trước bất cứ một yêu cầu, áp lực hay một yếu tố tác động nào đe dọa đến sự tồn tại lành mạnh của con người cả về thể chất lẫn tinh thần.
+2. Nguyên nhân nào khiến bạn thường xuyên gặp Stress
+Thông thường có bốn nguồn gây ra bệnh stress:
+– Môi trường bên ngoài: Thời tiết, tiếng ồn, giao thông, bụi, và sự ô nhiễm.
+– Những căng thẳng từ xã hội và gia đình: Thời hạn của công việc phải hoàn thành, các vấn đề tài chính, công việc, các bài trình bày, mâu thuẫu, yêu cầu về thời gian và sự tập trung sức lực vào công việc hay gia đình, mất mát người thân, mâu thuẫn trong gia đình, bạn bè…
+– Các vấn đề về thể chất: Thay đổi cơ thể, ốm đau, không đủ chất dinh dưỡng…
+– Suy nghĩ của các bạn: Đôi khi, cách chúng ta suy nghĩ hay phiên giải những điều đã hoặc sẽ xảy ra đem đến cho chính mình rất nhiều căng thẳng. Thường đó là những suy nghĩ tiêu cực. Ví dụ: nếu trượt đại học, tương lai của tôi thật mù mịt; Nếu tôi không làm được thì mọi người sẽ cười chê tôi,…
+3. Những triệu chứng thường gặp khi bạn bị stress
+ Mỗi cá nhân riêng biệt đều có những biểu hiện stress khác nhau, dưới đây là những biểu hiện stress tiêu biểu mà chúng ta cần nhớ
+ Những biểu hiện Stress về mặt cảm xúc:
+– Cảm thấy khó chịubenh stress
+– Cảm thấy lo lắng hoặc căng thẳng
+– Cảm thấy buồn bã
+– Cảm thấy chán nản, thờ ơ
+– Cảm thấy đánh mất giá trị bản thân
+Những biểu hiện stress về hành vi:
+– Nổi cáu, bực bội hoặc nóng tính
+– Sử dụng các chất kích thích như rượu hoặc thuốc lá
+– Xáo trộn các sinh hoạt hàng ngày như ăn uống hoặc giấc ngủ của bạn
+– Bỏ qua những hành vi thông thường, mất tập trung
+– Trở nên vô lý trong những quyết định của mình
+– Hay quên hoặc trở nên vụng về
+– Luôn vội vàng và hấp tấp
+– Ăn quá nhiều hoặc ăn quá ít Những triệu chứng về thể chất
+– Đau đầu
+– Căng hoặc đau cơ bắp
+ – Đau bụng
+– Đồ mồ hôi
+– Cảm thấy chóng mặt
+– Rối loạn tiêu hóa
+– Khó thở hoặc đau ngực
+– Khô miệng
+– Ngứa trên cơ thể
+– Có vấn đề về tình dục: Yếu sinh lý, giảm ham muốn tình dục, rối loạn sinh lý, …
+4. Cách chữa bệnh Stress
+– Hài ước: Cố gắng sử dụng khiếu hài ước trong những tình huống khó khăn. Cười về chính bản thân mình cũng rất có lợi
+– Duy trì tập thể dục hay chơi thể thao thường xuyên: Tập thể dục giúp bạn khỏe mạnh hơn và những cảm xúc tiêu cực của bạn sẽ được giải tỏa phần nào qua những hoạt động cơ bắt.
+– Nhận ra và chấp nhận giới hạn: “Trèo cao, ngã đau”. Hãy thiết lập những mục tiêu thực tế và tính đến cả những phương án rủi ro.
+– Duy trì chế độ ăn uống và giấc ngủ điều độ: Điều này có vẻ khó vì trong khi căng thẳng, đôi lúc bạn thực sự không muốn ăn không muốn ngủ. Tuy nhiên, hãy nhớ rằng, chính ăn và ngủ sẽ giúp bạn hồi phục sức khỏe và do đó tỉnh táo và mạnh mẽ hơn trong việc giải quyết vấn đề của mình.
+– Học để lập kế hoạch: Sự thiếu tổ chức có thể gây ra căng thẳng và gây mất thời gian. Liệt kê ra những việc cần làm và thực hiện những việc nhỏ và dễ làm trước. Cảm giác hoàn thành công việc (dù là nhỏ) sẽ giúp bạn cảm thấy đỡ hơn.
+– Học để chơi: Đôi khi bạn cần thoát ra những áp lực của cuộc sống và có sự vui đùa. Tìm kiếm những hoạt động hoặc giải trí mình say mê và hứng thú mà không cần quan tâm đến khả năng và trình độ của mình ở mức độ nào.
+– Học thư giãn: Thư giãn là những bài tập sử dụng sức mạnh tập trung của tâm trí để thả lỏng các cơ bắp và đưa tâm trí vào trạng thái thư thái bình an. Hãy học các cách thư giãn từ các nhà tâm lý học, giáo viên thiền, Yoga…</string>
+    <string name="dummy_title_info_3">Thế nào là rối loạn lưỡng cực (Bipolar disorders)?</string>
+    <string name="dummy_header_info_3">Rối loạn lưỡng cực (Bipolar disorders – RLLC), hay còn được biết đến với tên gọi bệnh hưng – trầm cảm, là một loại bệnh lý tâm thần khá thường gặp trong xã hội hiện đại. Biểu hiện đặc trưng thường thấy của bệnh là sự thay đổi rõ rệt tâm trạng, cảm xúc, hành vi cũng như năng lực cá nhân. Những thay đổi này diễn tiến theo từng giai đoạn. Khi người mắc RLLC trong trạng thái hưng cảm (mania) biểu hiện quá mức những cảm giác phấn chấn, vui vẻ, hào hứng. Ngược lại, khi người bệnh trong giai đoạn trầm cảm (depression) sẽ rơi vào tình trạng trầm uất, buồn chán, thờ ơ. Đôi khi, một giai đoạn bao gồm biểu hiện của cả hai trạng thái hưng cảm và trầm cảm (trạng thái hỗn hợp – mixed state).
+
+Chứng RLLC thường được bắt đầu bằng một giai đoạn trầm cảm. Giai đoạn hưng cảm kế tiếp đó thường chỉ đến sau vài tháng, thậm chí vài năm sau. Nhiều trường hợp xuất hiện cùng lúc với trầm cảm trong trạng thái hỗn hợp hoặc sau giai đoạn bình thường không có triệu chứng (Stober et al., 1995)
+    Bệnh hưng- trầm cảm được chia làm 3 loại với những đặc điểm về thời gian, chu kỳ và mức độ cảm xúc khác nhau: RLLC loại I, II và Cyclothymia.
+.</string>
+<string name="dummy_last_content_3">
+Yếu tố di truyền: nghiên cứu trên những cặp sinh đôi chỉ ra rằng có 1 sự “ đóng góp đáng kể về mặt di truyền” của gen đối với chứng RLLC. Những người có quan hệ huyết thống với người mắc RLLC thường có nguy cơ cao mắc bệnh. Một nghiên cứu bởi nhóm các nhà khoa học trên toàn thế giới được đăng trên tạp chí Neuron chỉ ra rằng một số sao chép biến thể hiếm và sự dị thường trong trình tự sắp xếp cấu trúc của DNA đóng vai trò quan trọng dẫn đến chứng RLLC.
+Đặc điểm sinh học: Một số nhà nghiên cứu cho rằng bệnh nhân mắc chứng hưng- trầm cảm có những điểm khác biệt đáng kể trong cấu trúc não bộ. Đây là nhận định ban đầu cần có thời gian kiểm chứng và tìm ra lí do giải thích xác đáng.
+Ngoài ra, sự mất cân bằng hóa chất truyền dẫn thần kinh (neurotransmitter) ảnh hưởng trực tiếp đến những loại rối loạn cảm xúc mà RLLC là một trong số đó. Chất dẫn truyền thần kinh bao gồm serotonin, norepinephrine và dopamine.
+
+Yếu tố môi trường: Tình trạng bị lạm dụng, căng thẳng thần kinh kéo dài cũng như những cú shock tâm lí có thể dẫn đến chứng RLLC. Những tổn thương tâm lí lớn như mất người thân, mất công việc, li dị, biến cố trong gia đình ảnh hưởng lớn đến các rối loạn cảm xúc.
+Những nghiên cứu gần đây còn phát hiện ra một số nguy cơ mắc RLLC cho trẻ nếu thai phụ bị cảm cúm trong quá trình thai kì. (Parboosing et al., 2013)
+
+Rối loạn lưỡng cực ảnh hưởng đến cuộc sống
+
+Người bị RLLC thường có xu hướng lạm dụng rượu bia và sử dụng các loại hóa chất kích thích, thuốc ngủ như một “cứu cánh” cho tình trạng suy giảm giấc ngủ.
+
+Do sự rối loạn cảm xúc nên người mắc RLLC thường khó duy trì các mối quan hệ xã hội, nhiều khi bị mọi người xung quanh xa lánh, coi thường.
+
+Ngoại trừ những giai đoạn hưng phấn, người mắc RLLC có thể đạt được những đột phá thì khi rơi vào giai đoạn trầm cảm, năng suất làm việc, học tập đều sa sút rõ rệt, hậu quả của sự suy giảm trí nhớ cũng như khó tập trung, quyết định thiếu chính xác.
+
+Như đã đề cập phần trên, giai đoạn hưng cảm, người bệnh thường xuyên cảm thấy lạc quan thái quá dẫn đến việc phung phí, tiêu pha, mua sắm vô độ. Họ cũng rất dễ bị kích động bởi những tác nhân bên ngoài “trái với” ý định của họ. Suy nghĩ chớp nhoáng, thiếu cân nhắc để lại nhiều hậu quả đến đời sống.
+
+Ngược lại, khi giai đoạn trầm cảm bắt đầu, sự buồn chán, bi quan làm người mắc RLLC mất đi những thú vui, sở thích thường vẫn có khi bình thường. Họ dễ dàng từ bỏ khi gặp khó khăn và tệ hơn nữa, ý định tự hủy hoại bản thân, tự sát luôn thường trực trong tâm trí họ.</string>
+</resources>

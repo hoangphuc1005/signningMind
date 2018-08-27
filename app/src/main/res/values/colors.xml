@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorGlosbe">#8123a1</color>
+    <color name="colorGlosbeLight">#ac5cc7</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>s
+    <color name="colorAccent1">#e685a6</color>
+    <color name="colorlightGreen">#1c9ad6</color>
+    <color name="colorGreen203">#FFCEFFD0</color>
+    <color name="color_menu">#314a66</color>
+    <color name="color_bg_a_z">#2077a4</color>
+    <color name="colorGreen204">#16a71c</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="colorBlack10">#1A000000</color>
+
+
+    <!--<color name="colorRed">#FF0000</color>-->
+    <color name="colorRed">#c02926</color>
+    <color name="colorRed20">#59FF0000</color>
+    <!--<color name="colorRedDark">#FFDE0303</color>-->
+    <color name="colorRedDark">#89190d</color>
+    <color name="colorGoogle">#df4a32</color>
+    <color name="colorGray">#959595</color>
+    <color name="color70Gray">#A4A4A4</color>
+    <color name="color70White">#D2D2D2</color>
+    <color name="color80White">#E1E1E1</color>
+    <color name="color80Gray">#DFDFDF</color>
+    <color name="colorGreen">#01579b</color>
+    <color name="colorFacebook">#3a589b</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorBlack20">#59000000</color>
+    <color name="color80Black">#313131</color>
+    <color name="colorMenuLeft">#444444</color>
+    <color name="color90White">#F3F3F3</color>
+    <color name="colorBrown">#939393</color>
+    <color name="colorBlue">#1c9ad6</color>
+    <color name="colorYeallow">#faa61a</color>
+    <color name="colorRoleSuperManager">#fe0000</color>
+    <color name="colorRoleNormal">#faa61a</color>
+    <color name="colorDisable">#80bebebe</color>
+    <color name="white_f2">#f2f2f2</color>
+    <color name="white_1">#FFFFFF</color>
+    <color name="white_2">#fcf9f9</color>
+    <color name="white_alpha_2">#00FFFFFF</color>
+    <color name="white_c2">#a4a2a2</color>
+    <color name="bg_more">#2f3453</color>
+    <color name="bg_press_more">#20243e</color>
+
+    <color name="bg_game_yellow">#d2ba4d</color>
+    <color name="bg_game_green">#409f45</color>
+    <color name="bg_game_blue">#2591b0</color>
+    <color name="bg_bet_loose">#312d2d</color>
+    <color name="bg_btn_login">#2282b4</color>
+</resources>

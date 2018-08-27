@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_menu"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    >
+<ImageView
+    android:id="@+id/header"
+    android:layout_width="match_parent"
+    android:src="@drawable/img_anhmenu"
+    android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        >
+
+        <FrameLayout
+            android:id="@+id/fragment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/d10"
+            android:layout_marginRight="@dimen/d20"
+            android:paddingLeft="@dimen/d10">
+
+            <com.MentalHealth.mental.base.customview.CircleImageView
+                android:id="@+id/imgUser"
+                android:layout_width="@dimen/d50"
+                android:layout_height="@dimen/d50"
+                android:layout_gravity="center_horizontal"
+                app:border_color="@android:color/transparent" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvNameUser"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/d20"
+            android:layout_toRightOf="@id/fragment"
+            android:text=""
+            android:textColor="@color/white_1"
+            android:textSize="@dimen/text18"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imvEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/d15"
+            android:layout_marginRight="@dimen/d10"
+            android:padding="@dimen/d10"
+            android:src="@drawable/ic_edit" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/header">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:alpha="0.08"
+             />
+
+        <ListView
+            android:id="@+id/lvSdingMenu"
+            android:layout_width="match_parent"
+            android:dividerHeight="1dp"
+            android:layout_height="match_parent"
+            android:divider="@color/white_alpha_2"></ListView>
+    </RelativeLayout>
+
+</RelativeLayout>

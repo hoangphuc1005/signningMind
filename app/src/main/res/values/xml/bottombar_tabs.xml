@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/tab_home"
+        icon="@drawable/bottom_home"
+        title="Trang chủ" />
+    <tab
+        id="@+id/tab_video"
+        icon="@drawable/bottom_video"
+        title="Video" />
+    <tab
+        icon="@drawable/bottom_fan"
+        id="@+id/tab_fan_page"
+        title="Fan Page" />
+    <tab
+        icon="@drawable/bottom_user"
+        id="@+id/tab_user"
+        title="Hồ sơ" />
+</tabs>

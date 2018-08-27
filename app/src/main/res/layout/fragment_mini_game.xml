@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/img_bggame"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/d40"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="@dimen/d10"
+            android:layout_marginRight="@dimen/d10"
+            android:background="@drawable/img_frame2">
+
+            <TextView
+                android:id="@+id/tvLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="@dimen/d10"
+                android:text="LEVEL 1"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text18"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTitleAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvLevel"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/d20"
+                android:layout_marginRight="@dimen/d20"
+                android:layout_marginTop="@dimen/d40"
+                android:text="Quần đảo trường sa thuộc quốc gia nào ?"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/text16" />
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d20"></android.support.v7.widget.RecyclerView>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/d20"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/btnBackAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/d20"
+                android:layout_weight="1"
+                android:src="@drawable/ic_btn_back" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btnBackAnswer"
+                android:layout_weight="1"
+                android:src="@drawable/ic_btnnext" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</ScrollView>
