@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img_bggame"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/d50"
+        android:layout_marginLeft="@dimen/d50"
+        android:layout_marginRight="@dimen/d50"
+        android:layout_marginTop="@dimen/d50"
+        android:background="@drawable/img_frameanswer"
+        android:orientation="vertical">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/d30"
+            android:layout_marginRight="@dimen/d30"
+            android:layout_marginTop="@dimen/d30">
+
+            <TextView
+                android:id="@+id/textContentRightAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="quan dao truong xa la cua viet nam dadaddadadad"
+                android:textColor="@color/white_1"
+                android:textSize="@dimen/text16" />
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imBackAnswerContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/d20"
+        android:src="@drawable/ic_btnnext" />
+</RelativeLayout>
