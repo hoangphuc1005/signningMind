@@ -1,6 +1,8 @@
 package com.MentalHealth.mental.az.view;
 
 import android.content.Context;
+import android.text.Html;
+import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +15,8 @@ import com.MentalHealth.mental.az.model.AZChildModel;
 import com.MentalHealth.mental.az.model.AZGroupModel;
 
 import java.util.ArrayList;
+
+import static android.view.View.MEASURED_SIZE_MASK;
 
 /**
  * Created by hoangphuc on 15/07/2018.
@@ -94,9 +98,9 @@ public class AZDetailAdapter extends BaseExpandableListAdapter {
                     context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = infalInflater.inflate(R.layout.custom_child_expand_a_z, null);
         }
-
+        SpannableString spannableString = new SpannableString(Html.fromHtml(detailInfo.getName()));
         TextView sequence = (TextView) view.findViewById(R.id.tvChildAZ);
-        sequence.setText(detailInfo.getName());
+        sequence.setText(spannableString);
         return view;
     }
 

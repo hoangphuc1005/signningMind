@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/img_bggame"
     android:orientation="vertical">
 
@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/d40"
+        android:layout_marginTop="@dimen/d20"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -41,7 +41,6 @@
                 android:layout_marginLeft="@dimen/d20"
                 android:layout_marginRight="@dimen/d20"
                 android:layout_marginTop="@dimen/d40"
-                android:text="Quần đảo trường sa thuộc quốc gia nào ?"
                 android:textColor="@color/colorWhite"
                 android:textSize="@dimen/text16" />
         </RelativeLayout>
@@ -56,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/d20"
+            android:layout_marginBottom="@dimen/d20"
             android:orientation="horizontal">
 
             <ImageView
@@ -68,6 +67,7 @@
                 android:src="@drawable/ic_btn_back" />
 
             <ImageView
+                android:id="@+id/btnNextAnswer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/btnBackAnswer"
@@ -77,4 +77,4 @@
     </LinearLayout>
 
 
-</ScrollView>
+</android.support.v4.widget.NestedScrollView>

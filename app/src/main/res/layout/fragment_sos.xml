@@ -12,20 +12,20 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/d20"
         android:layout_marginTop="@dimen/d20"
-        android:src="@drawable/img_hospital1" />
+        android:src="@drawable/img_hanoi" />
 
     <ImageView
         android:id="@+id/imgHospitalSecond"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/img_hospital2" />
+        android:src="@drawable/img_danang" />
 
     <ImageView
         android:id="@+id/imgHospitalThird"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/d20"
-        android:src="@drawable/img_hospital3" />
+        android:src="@drawable/img_hcm" />
 
 
 </LinearLayout>

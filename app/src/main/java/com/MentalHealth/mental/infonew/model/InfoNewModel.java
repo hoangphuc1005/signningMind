@@ -2,11 +2,15 @@ package com.MentalHealth.mental.infonew.model;
 
 public class InfoNewModel {
     private String titleInfo;
-    private int imgInfo;
+    private String imgInfo;
+    private String id;
 
-    public InfoNewModel(String titleInfo, int imgInfo) {
-        this.titleInfo = titleInfo;
-        this.imgInfo = imgInfo;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getTitleInfo() {
@@ -17,11 +21,11 @@ public class InfoNewModel {
         this.titleInfo = titleInfo;
     }
 
-    public int getImgInfo() {
+    public String getImgInfo() {
         return imgInfo;
     }
 
-    public void setImgInfo(int imgInfo) {
+    public void setImgInfo(String imgInfo) {
         this.imgInfo = imgInfo;
     }
 }

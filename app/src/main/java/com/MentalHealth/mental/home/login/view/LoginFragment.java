@@ -1,24 +1,28 @@
 package com.MentalHealth.mental.home.login.view;
 
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.MentalHealth.mental.MainActivity;
 import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.base.BaseFragment;
+import com.MentalHealth.mental.base.Utils;
 import com.MentalHealth.mental.home.login.model.LoginModel;
 import com.MentalHealth.mental.serverapi.ApiUtils;
 import com.MentalHealth.mental.serverapi.SOService;
+import com.MentalHealth.mental.servicefcm.NotificationUtils;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -32,7 +36,10 @@ public class LoginFragment extends BaseFragment {
     public static final String USERNAME = "userNameKey";
     SharedPreferences sharedpreferences;
     public static final String PASSWORD = "passWordKey";
+    public static final String USER_ID = "userID";
     private SOService mService;
+    private String androidID;
+
 
     @Override
     public int getLayoutId() {
@@ -69,11 +76,14 @@ public class LoginFragment extends BaseFragment {
 
     }
 
+    @SuppressLint("HardwareIds")
     private void initView() {
         tvUserName = (EditText) findViewById(R.id.tvAccount);
         tvUserPassWord = (EditText) findViewById(R.id.tvPassWord);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         mService = ApiUtils.getSOService();
+        androidID = Settings.Secure.getString(getContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID);
     }
 
     private void checkUserPass(String userName, String passWord) {
@@ -85,32 +95,37 @@ public class LoginFragment extends BaseFragment {
             showErrorText("Bạn chưa nhập mật khẩu, bạn hãy nhập mật khẩu để có thể trải nghiệm App một cách tốt nhất");
         }
         if (!userName.isEmpty() && !passWord.isEmpty()) {
-            if (userName.equals("thanhtn") && passWord.equals("123456")) {
-                savedAccount(userName, passWord);
-                checkLogin(userName,passWord,"1234567");
-            } else if (!passWord.equals("123456")) {
-                showErrorText("Bạn đã nhập sai mật khẩu , bạn hãy nhập lại mật khẩu để tiếp tục ");
-            } else if (userName.equals("thanhtn")) {
-                showErrorText("Bạn đã nhập sai eamil , bạn hãy nhập lại email để tiếp tục ");
-            }
-
+            checkLogin(userName, passWord, androidID);
         }
+
     }
 
-    private  void checkLogin(String userName, String passWord,String deviceID){
-        mService.loginApp(userName,passWord,deviceID).enqueue(new Callback<LoginModel>() {
+    private void checkLogin(final String userName, final String passWord, String deviceID) {
+        final ProgressDialog progressDoalog;
+        progressDoalog = new ProgressDialog(getContext());
+        progressDoalog.setMessage("Xin bạn chờ trong giây lát...");
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        // show it
+        progressDoalog.show();
+        mService.loginApp(userName, passWord, deviceID).enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                if(response!=null){
-                    if(response.body().getMessage().equals("success")){
+                if (response != null) {
+                    if (response.raw().isSuccessful()) {
+                        progressDoalog.dismiss();
+                        savedAccount(userName, passWord, response.body().getUserId().toString());
                         nextView();
+                    } else {
+                        progressDoalog.dismiss();
+                        showErrorText("Bạn đã nhập sai mật khẩu , bạn hãy nhập lại mật khẩu để tiếp tục ");
                     }
                 }
             }
 
             @Override
             public void onFailure(Call<LoginModel> call, Throwable t) {
-
+                t.getMessage();
+                showErrorText("Bạn đã nhập sai mật khẩu , bạn hãy nhập lại mật khẩu để tiếp tục ");
             }
         });
     }
@@ -135,10 +150,11 @@ public class LoginFragment extends BaseFragment {
                 }).show();
     }
 
-    private void savedAccount(String userName, String passWord) {
+    private void savedAccount(String userName, String passWord, String userID) {
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putString(USERNAME, userName.trim());
         editor.putString(PASSWORD, passWord.trim());
-        editor.commit();
+        editor.putString(USER_ID, userID.trim());
+        editor.apply();
     }
 }

@@ -63,7 +63,6 @@ public class SlidingMenuAdapter extends BaseAdapter {
         if(status.equalsIgnoreCase(slidingMenuModel.getTvItems())){
             viewHolder.tvItems.setTypeface(null, Typeface.BOLD);
 
-            ;
         }else{
             viewHolder.tvItems.setTextColor(context.getResources().getColor(R.color.colorWhite));
         }

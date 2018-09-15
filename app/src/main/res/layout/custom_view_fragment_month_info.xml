@@ -5,21 +5,24 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="@dimen/d20">
+
     <RelativeLayout
         android:id="@+id/rlMonthInfo"
         android:layout_width="match_parent"
-        android:background="@drawable/img_ngaybikhoa"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/img_ngaybikhoa">
+
         <TextView
             android:id="@+id/tvDateOfMonth"
-            android:layout_centerInParent="true"
-            android:textColor="@color/colorWhite"
-            android:textSize="@dimen/text18"
-            android:layout_alignParentLeft="true"
-            android:text="adadada"
-            android:layout_marginLeft="@dimen/d80"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/d80"
+            android:text="adadada"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text18" />
     </RelativeLayout>
 
 

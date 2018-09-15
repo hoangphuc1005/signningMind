@@ -11,7 +11,9 @@ import android.widget.Toast;
 
 import com.MentalHealth.mental.MainActivity;
 import com.MentalHealth.mental.R;
-import com.MentalHealth.mental.home.login.MyPagerAdapter;
+import com.MentalHealth.mental.base.Utils;
+import com.MentalHealth.mental.serverapi.ApiUtils;
+import com.MentalHealth.mental.serverapi.SOService;
 import com.rd.PageIndicatorView;
 
 public class LoginActivity extends AppCompatActivity {
@@ -39,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
             if (!sharedpreferences.getString(USERNAME, "").isEmpty()) {
                 String userName = sharedpreferences.getString(USERNAME, "");
                 String passWord = sharedpreferences.getString(PASSWORD, "");
-                if (userName.equals("thanhtn") && passWord.equals("123456")) {
+                if (!userName.equals("") && !passWord.equals("")) {
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
                     finish();
@@ -50,8 +52,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        if(!Utils.isNetworkOnline(this)){
+            Utils.showCustomToask(this, getResources().getString(R.string.txt_check_network), Toast.LENGTH_LONG);
+        }
         vpPager = (ViewPager) findViewById(R.id.vpPager);
-        adapterViewPager = new MyPagerAdapter(getSupportFragmentManager());
+        adapterViewPager = new MyPagerAdapter(4,getSupportFragmentManager());
         vpPager.setAdapter(adapterViewPager);
         pageIndicatorView = (PageIndicatorView) findViewById(R.id.pageIndicatorView);
         pageIndicatorView.setCount(4); // specify total count of indicators

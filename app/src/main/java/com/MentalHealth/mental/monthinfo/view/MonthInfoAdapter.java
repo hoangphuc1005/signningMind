@@ -11,16 +11,18 @@ import android.widget.TextView;
 
 import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.infonew.model.InfoNewModel;
+import com.MentalHealth.mental.library.model.DataDoccumentModel;
+import com.MentalHealth.mental.monthinfo.model.DataAlldayModel;
 
 import java.util.List;
 
 public class MonthInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context context;
-    private List<InfoNewModel> items;
+    private List<DataAlldayModel> items;
     private OnClickRecycleView clickRecycleView;
 
-    public MonthInfoAdapter(Context mContext, List<InfoNewModel> items, OnClickRecycleView onClickRecycleView) {
+    public MonthInfoAdapter(Context mContext, List<DataAlldayModel> items, OnClickRecycleView onClickRecycleView) {
         this.context = mContext;
         this.items = items;
         this.clickRecycleView = onClickRecycleView;
@@ -37,11 +39,34 @@ public class MonthInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
-        final InfoNewModel infoNewModel = items.get(position);
-        itemViewHolder.imgIcons.setBackgroundResource(infoNewModel.getImgInfo());
-        itemViewHolder.tvDateOfMonth.setText(infoNewModel.getTitleInfo());
+        final DataAlldayModel infoNewModel = items.get(position);
+        if (infoNewModel.getActive().equals("0")) {
+            itemViewHolder.imgIcons.setBackgroundResource(R.drawable.img_ngaybikhoa);
+            holder.itemView.setEnabled(false);
+        } else if (infoNewModel.getActive().equals("1")) {
+            if (infoNewModel.getWasRead() == false) {
+                itemViewHolder.imgIcons.setBackgroundResource(R.drawable.img_ngaychuaxem);
+                holder.itemView.setEnabled(true);
+            } else if (infoNewModel.getWasRead() == true) {
+                itemViewHolder.imgIcons.setBackgroundResource(R.drawable.img_ngaydaxem);
+                holder.itemView.setEnabled(true);
+            }
+
+        }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickRecycleView.setOnItemClick(infoNewModel.getId());
+            }
+        });
+
+        itemViewHolder.tvDateOfMonth.setText(infoNewModel.getName());
     }
 
+    public void updateAnswers(List<DataAlldayModel> itemsList) {
+        items = itemsList;
+        notifyDataSetChanged();
+    }
 
     @Override
     public int getItemCount() {
@@ -55,13 +80,8 @@ public class MonthInfoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         public ItemViewHolder(View itemView) {
             super(itemView);
             imgIcons = (RelativeLayout) itemView.findViewById(R.id.rlMonthInfo);
-            tvDateOfMonth=(TextView)itemView.findViewById(R.id.tvDateOfMonth);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    clickRecycleView.setOnItemClick(getLayoutPosition());
-                }
-            });
+            tvDateOfMonth = (TextView) itemView.findViewById(R.id.tvDateOfMonth);
+
         }
     }
 

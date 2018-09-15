@@ -18,7 +18,7 @@ public class DBHistory extends SQLiteOpenHelper {
     private static final String TAG = "SQLite";
 
     // Phiên bản
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
 
 
     // Tên cơ sở dữ liệu.
@@ -33,6 +33,7 @@ public class DBHistory extends SQLiteOpenHelper {
 
     private static final String DIARY_ID = "id";
     private static final String DIARY_DATE = "date";
+    private static final String DIARY_DATE_OF_Month = "date_of_month";
     private static final String DIARY_TITLE = "title";
     private static final String DIARY_CONTENT = "content";
 
@@ -42,7 +43,9 @@ public class DBHistory extends SQLiteOpenHelper {
 //        Toast.makeText(context,"db tao thanh cong",Toast.LENGTH_LONG).show();
         // Script tạo bảng.
         String script = "CREATE TABLE " + TABLE_DIARY + "("
-                + DIARY_ID + " TEXT," + DIARY_DATE + " TEXT,"
+                + DIARY_ID + " TEXT,"
+                + DIARY_DATE + " TEXT,"
+                + DIARY_DATE_OF_Month + " TEXT,"
                 + DIARY_TITLE + " TEXT,"
                 + DIARY_CONTENT + " TEXT" + ")";
         // Chạy lệnh tạo bảng.
@@ -69,6 +72,7 @@ public class DBHistory extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(DIARY_ID, diary.getId());
         values.put(DIARY_DATE, diary.getDateOfDiary());
+        values.put(DIARY_DATE_OF_Month, diary.getMonthOfDiary());
         values.put(DIARY_TITLE, diary.getTitleOfDiary());
         values.put(DIARY_CONTENT, diary.getContentOfDiary());
 
@@ -83,7 +87,7 @@ public class DBHistory extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_DIARY, new String[]{DIARY_ID,
-                        DIARY_DATE, DIARY_TITLE, DIARY_CONTENT},
+                        DIARY_DATE, DIARY_DATE_OF_Month, DIARY_TITLE, DIARY_CONTENT},
                 DIARY_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null) {
@@ -91,8 +95,9 @@ public class DBHistory extends SQLiteOpenHelper {
                 DiaryModel diaryModel = new DiaryModel();
                 diaryModel.setId(cursor.getString(0));
                 diaryModel.setDateOfDiary(cursor.getString(1));
-                diaryModel.setTitleOfDiary(cursor.getString(2));
-                diaryModel.setContentOfDiary(cursor.getString(3));
+                diaryModel.setMonthOfDiary(cursor.getString(2));
+                diaryModel.setTitleOfDiary(cursor.getString(3));
+                diaryModel.setContentOfDiary(cursor.getString(4));
 
                 if (!cursor.isClosed()) {
                     cursor.close();
@@ -122,8 +127,9 @@ public class DBHistory extends SQLiteOpenHelper {
                     DiaryModel diaryModel = new DiaryModel();
                     diaryModel.setId(cursor.getString(0));
                     diaryModel.setDateOfDiary(cursor.getString(1));
-                    diaryModel.setTitleOfDiary(cursor.getString(2));
-                    diaryModel.setContentOfDiary(cursor.getString(3));
+                    diaryModel.setMonthOfDiary(cursor.getString(2));
+                    diaryModel.setTitleOfDiary(cursor.getString(3));
+                    diaryModel.setContentOfDiary(cursor.getString(4));
                     diaryModelList.add(diaryModel);
                 } while (cursor.moveToNext());
             }
@@ -143,6 +149,7 @@ public class DBHistory extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(DIARY_DATE, diaryModel.getDateOfDiary());
+        values.put(DIARY_DATE_OF_Month, diaryModel.getDateOfDiary());
         values.put(DIARY_TITLE, diaryModel.getTitleOfDiary());
         values.put(DIARY_CONTENT, diaryModel.getContentOfDiary());
 

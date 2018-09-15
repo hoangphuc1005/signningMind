@@ -5,6 +5,16 @@ public class AnswerModel {
     private int bgQuestion;
     private int choiceAnswer;
 
+    private String trueAnswer;
+
+    public String getTrueAnswer() {
+        return trueAnswer;
+    }
+
+    public void setTrueAnswer(String trueAnswer) {
+        this.trueAnswer = trueAnswer;
+    }
+
     public int getChoiceAnswer() {
         return choiceAnswer;
     }
@@ -13,9 +23,10 @@ public class AnswerModel {
         this.choiceAnswer = choiceAnswer;
     }
 
-    public AnswerModel(String question, int bgQuestion) {
+    public AnswerModel(String question, int bgQuestion, String trueAnswer) {
         this.question = question;
         this.bgQuestion = bgQuestion;
+        this.trueAnswer = trueAnswer;
     }
 
     public String getQuestion() {

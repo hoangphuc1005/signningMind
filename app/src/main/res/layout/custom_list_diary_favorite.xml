@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="6 thang 6"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorGray"
             android:textSize="@dimen/text16" />
 
         <TextView
@@ -30,7 +30,7 @@
             android:layout_marginTop="@dimen/d10"
             android:text="thu 2"
             android:textAllCaps="true"
-            android:textColor="@color/colorBlack"
+            android:textColor="@color/colorDiaryText"
             android:textSize="@dimen/text18"
             android:textStyle="bold" />
     </LinearLayout>
@@ -55,7 +55,7 @@
         android:layout_toRightOf="@id/lnDateOfMonthDiary"
         android:lines="2"
         android:text="mot ngay nao do "
-        android:textColor="@color/colorBlack"
+        android:textColor="@color/colorDiaryText"
         android:textSize="@dimen/text20" />
 
     <ImageView

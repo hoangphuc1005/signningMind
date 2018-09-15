@@ -19,12 +19,14 @@ import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.base.BaseFragment;
 import com.MentalHealth.mental.gamemini.view.GameMiniFragment;
 import com.MentalHealth.mental.menu.AboutUsFragment;
+import com.MentalHealth.mental.servicefcm.notifi.view.LisNotificationFragment;
 
 
 public class MainFragment extends BaseFragment implements NavDrawerFragment.FragmentDrawerListener {
     private NavDrawerFragment drawerFragment;
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
+    public static final String USER_ID = "userID";
     private int mDefault_tab = 0;
 
     @Override
@@ -82,30 +84,20 @@ public class MainFragment extends BaseFragment implements NavDrawerFragment.Frag
                 onMoveFragmentMain(fragmentHome, bundle);
                 break;
             case 1:
-                fragmentHome = new ChartGraphViewFragment();
-                onMoveFragmentMain(fragmentHome, bundle);
+                Fragment fragmentHome1 = new ChartGraphViewFragment();
+                onMoveFragmentMain(fragmentHome1, bundle);
                 break;
             case 2:
-                fragmentHome = new GameMiniFragment();
+                fragmentHome = new LisNotificationFragment();
                 onMoveFragmentMain(fragmentHome, bundle);
                 break;
-//            case 3:
-//                fragment = new FragmentFixture();
-//                break;
-//            case 4:
-//                fragment = new FragmentLiveCore();
-//                break;
-//            case 5:
-//                fragment = new FragmentTraditional();
-//                break;
-//            default:
-//                break;
+            case 3:
+                fragmentHome = new LisNotificationFragment();
+                onMoveFragmentMain(fragmentHome, bundle);
+                break;
         }
 
     }
-
-    //ThanhTN get video prefix-link
-
 
     @Override
     public void onDestroy() {

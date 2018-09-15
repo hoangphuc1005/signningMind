@@ -24,33 +24,55 @@
                 android:layout_marginLeft="@dimen/d10"
                 android:src="@drawable/ic_monster" />
 
-            <EditText
-                android:id="@+id/editTitleDiary"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
                 android:layout_marginLeft="@dimen/d20"
                 android:layout_toRightOf="@id/imgMonsterDiary"
-                android:hint="Nhập Tiêu Đề" />
+                android:background="@drawable/bg_diary"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/editTitleDiary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:hint="Nhập Tiêu Đề"
+                    android:textColor="@color/colorDiaryText"
+                    android:textColorHint="@color/colorDiaryText" />
+            </LinearLayout>
+
+
         </RelativeLayout>
 
-        <EditText
-            android:id="@+id/editContentDiary"
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/lnContentDiary"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="300dp"
             android:layout_below="@id/rlTitleDiary"
             android:layout_marginTop="@dimen/d20"
-            android:hint="Ngày hôm nay ..."
+            android:background="@drawable/bg_content_diary"
+            android:orientation="vertical"
             android:paddingLeft="@dimen/d10"
-            android:paddingRight="@dimen/d10"
-            android:textStyle="italic" />
+            android:paddingRight="@dimen/d10">
+
+            <EditText
+                android:id="@+id/editContentDiary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="Ngày hôm nay ..."
+                android:textStyle="italic" />
+        </android.support.v4.widget.NestedScrollView>
+
 
         <Button
             android:id="@+id/btnSavedDiary"
             android:layout_width="100dp"
-            android:layout_height="40dp"
-            android:layout_below="@id/editContentDiary"
+            android:layout_height="30dp"
+            android:layout_below="@id/lnContentDiary"
             android:layout_centerInParent="true"
             android:layout_marginTop="@dimen/d20"
             android:background="@drawable/bg_save_diary"

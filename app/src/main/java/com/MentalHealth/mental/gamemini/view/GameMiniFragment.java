@@ -1,20 +1,47 @@
 package com.MentalHealth.mental.gamemini.view;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.MentalHealth.mental.R;
+import com.MentalHealth.mental.az.model.AZModel;
+import com.MentalHealth.mental.az.model.DataAZModel;
+import com.MentalHealth.mental.az.view.AZAdapter;
+import com.MentalHealth.mental.az.view.AZDetailFragment;
 import com.MentalHealth.mental.base.BaseFragment;
+import com.MentalHealth.mental.gamemini.model.LevelDataQuiz;
+import com.MentalHealth.mental.gamemini.model.LevelQuiz;
+import com.MentalHealth.mental.home.view.FragmentHome;
+import com.MentalHealth.mental.serverapi.ApiUtils;
+import com.MentalHealth.mental.serverapi.SOService;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
-public class GameMiniFragment extends BaseFragment implements View.OnClickListener {
+public class GameMiniFragment extends BaseFragment implements QuizLevelAdapter.OnClickRecycleView,
+        SwipeRefreshLayout.OnRefreshListener {
     private RelativeLayout rlLevelFirst;
+    private ImageView imgBack;
+    private ArrayList<LevelDataQuiz> listInfoNew;
+    private SOService mService;
+    private QuizLevelAdapter infoAdapter;
+    private SwipeRefreshLayout swipeRefreshInfo;
 
     @Override
     public int getLayoutId() {
@@ -30,18 +57,78 @@ public class GameMiniFragment extends BaseFragment implements View.OnClickListen
         updateBackActionbarCustomBack();
         comeBackHomeScreen();
         handleBackPress();
-        rlLevelFirst = (RelativeLayout) findViewById(R.id.rlLevelFirst);
-        rlLevelFirst.setOnClickListener(this);
+        initView();
     }
 
+    private void initView() {
+        mService = ApiUtils.getSOService();
+        swipeRefreshInfo = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshInfo);
+        swipeRefreshInfo.setOnRefreshListener(this);
+        RecyclerView recyclerInfo = (RecyclerView) findViewById(R.id.recycler_info);
+        listInfoNew = new ArrayList<>();
+        imgBack = (ImageView) findViewById(R.id.imgBack);
+        addDataInfo();
+        infoAdapter = new QuizLevelAdapter(getContext(), listInfoNew, this);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        recyclerInfo.setLayoutManager(mLayoutManager);
+        recyclerInfo.setAdapter(infoAdapter);
+        actionView();
+    }
+
+    private void actionView() {
+        imgBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onMoveFragmentMain(new FragmentHome(), new Bundle());
+
+            }
+        });
+    }
+
+    private void addDataInfo() {
+        final ProgressDialog progressDoalog;
+        progressDoalog = new ProgressDialog(getContext());
+        progressDoalog.setMessage("Xin đợi trong giây lát....");
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        // show it
+        progressDoalog.show();
+        getDataInfo(progressDoalog);
+
+    }
+
+    private void getDataInfo(final ProgressDialog progressDialog) {
+        mService.getAllLevel().enqueue(new Callback<LevelQuiz>() {
+            @Override
+            public void onResponse(Call<LevelQuiz> call, Response<LevelQuiz> response) {
+                if (response != null) {
+                    infoAdapter.updateAnswers(response.body().getData());
+                    progressDialog.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<LevelQuiz> call, Throwable t) {
+
+            }
+        });
+    }
 
     @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.rlLevelFirst:
-                onMoveParentFragments(new MiniGameAnswerFragment(), new Bundle());
-                break;
-        }
+    public void setOnItemClick(int position) {
+        Fragment fragment;
+        Bundle bundle = new Bundle();
+        bundle.putInt("quiz_cho", position);
+        fragment = new MiniGameAnswerFragment();
+        onMoveParentFragments(fragment, bundle);
+
+    }
+
+    @Override
+    public void onRefresh() {
+        final ProgressDialog progressDoalog;
+        progressDoalog = new ProgressDialog(getContext());
+        getDataInfo(progressDoalog);
+        swipeRefreshInfo.setRefreshing(false);
     }
 
 

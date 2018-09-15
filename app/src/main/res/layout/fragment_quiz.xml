@@ -8,10 +8,10 @@
     android:paddingTop="@dimen/d30">
 
     <RelativeLayout
-        android:layout_centerInParent="true"
-        android:layout_marginBottom="@dimen/d50"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/d20"
         android:background="@drawable/img_frame"
         android:orientation="vertical">
 
@@ -21,118 +21,21 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/d20"
             android:layout_marginRight="@dimen/d20"
-            android:layout_marginTop="@dimen/d80"
+            android:layout_marginTop="120dp"
             android:orientation="vertical"
             android:weightSum="6">
 
-            <RelativeLayout
-                android:id="@+id/rlLevelFirst"
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipe_refreshInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d20"
-                android:layout_weight="1"
-                android:background="@drawable/img_framelevel">
+                android:layout_alignParentTop="true">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="serif"
-                    android:text="LEVEL 1"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text18"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d20"
-                android:layout_weight="1"
-                android:background="@drawable/img_framelevellock">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="serif"
-                    android:text="LEVEL 2"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text18"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d20"
-                android:layout_weight="1"
-                android:background="@drawable/img_framelevellock">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="serif"
-                    android:text="LEVEL 3"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text18"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d20"
-                android:layout_weight="1"
-                android:background="@drawable/img_framelevellock">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="serif"
-                    android:text="LEVEL 4"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text18"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d20"
-                android:layout_weight="1"
-                android:background="@drawable/img_framelevellock">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="serif"
-                    android:text="LEVEL 5"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text18"
-                    android:textStyle="bold" />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d20"
-                android:layout_weight="1"
-                android:background="@drawable/img_framelevellock">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:fontFamily="serif"
-                    android:text="LEVEL 6"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="@dimen/text18"
-                    android:textStyle="bold" />
-            </RelativeLayout>
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recycler_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </android.support.v4.widget.SwipeRefreshLayout>
         </LinearLayout>
 
 
@@ -143,7 +46,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
         android:layout_centerInParent="true"
+        android:layout_marginBottom="20dp"
         android:src="@drawable/ic_btnback" />
 </RelativeLayout>

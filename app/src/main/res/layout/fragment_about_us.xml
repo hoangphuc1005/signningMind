@@ -12,71 +12,20 @@
 
         <ImageView
             android:id="@+id/imgInfoNewDetail"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/test_info" />
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/webView"
+            android:layout_marginRight="@dimen/d20"
+            android:layout_marginLeft="@dimen/d20"
+            android:paddingTop="@dimen/d10"
+            android:paddingBottom="@dimen/d10"
+            android:textSize="@dimen/text16"
+            android:textColor="@color/colorBlack"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/d10"
-            android:layout_marginRight="@dimen/d10"
-            android:layout_marginTop="@dimen/d20"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/tvTitleInfoNewDetail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Roi loan lo au la gi ?"
-                android:textSize="@dimen/text18"
-                android:textStyle="bold" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/imgFavorite"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginTop="@dimen/d10"
-                    android:src="@drawable/ic_thich" />
-
-                <ImageView
-                    android:id="@+id/imgShare"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginTop="@dimen/d10"
-                    android:src="@drawable/ic_share" />
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/tvTitleHeaderInfoNewDetail"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d10"
-                android:text="Bệnh rối loạn lo âu là một trong những bệnh phổ biến gây cho con người có cảm giác ám ảnh cưỡng chế, nỗi sợ đám đông, rối loạn hoảng hốt, lo lắng những điều nhỏ nhặt cũng khiến cho người bệnh cảm thấy lo lắng, nó là một trong những chứng bệnh thuộc dạng tâm thần nhẹ phổ biến ở Mỹ, tuy nhiên ở Việt Nam nhiều người vẫn chưa chấp nhận rằng mình bị bệnh tâm thần. Thường có xu hướng né tránh và thường đi khám các chuyên khoa khác như tim mạch, thần kinh, tuy nhiên khi các bác sĩ nói rằng bị các vấn đề về tâm thần và khuyên đi khám tâm thần thì người bệnh không hợp tác.
-Căng thẳng lo âu có thể có rất nhiều triệu chứng mà bạn thường hiểu lầm đối với những căn bệnh khác như tim mạch và hô hấp, khi bạn bệnh, các triệu chứng rối loạn lo âu thường gặp như tim đập nhanh, cảm giác hồi hộp đánh trống ngực, cảm giác khó thở, lo lắng dễ giật mình và thường có những suy nghĩ tiêu cực về cuộc sống, thường xuyên giận dữ vô cớ, tâm trạng bồn chồn. Thường xuyên bị đau bụng buồn nôn và tiêu chảy." />
-
-            <ImageView
-                android:id="@+id/imgContentInfoNewDetail"
-                android:layout_marginTop="@dimen/d10"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:src="@drawable/download" />
-            <TextView
-                android:id="@+id/tvLastContentInfoNewDetail"
-                android:layout_marginTop="@dimen/d10"
-                android:layout_width="match_parent"
-                android:text="Một trong những triệu chứng đầu tiên của việc bị rối loạn lo âu đó là không thể kiên nhẫn hay tha thứ cho người khác. Gia đình, bạn bè, đồng nghiệp sẽ phải gánh chịu cơn thịnh nộ của bạn. Tuy nhiên, sau cùng thì chính bạn mới là người bị cảm xúc của mình giày vò nhiều nhất.
-
-Quá khó để gánh vác tất cả những chuyện xảy ra trên thế giới chỉ bằng đôi vai của bạn. Do vậy, hãy chấp nhận bị tổn thương và yêu cầu sự giúp đỡ. Mất kiên nhẫn với chính mình và với người khác chính là dấu hiệu cho thấy bạn cần sống chậm lại."
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+            android:layout_height="match_parent" />
     </LinearLayout>
 
 

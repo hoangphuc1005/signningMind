@@ -27,6 +27,7 @@ public class DiaryFragment extends BaseFragment implements View.OnClickListener 
         updateBackActionbarCustomBack();
         handleBackPress();
         comeBackHomeScreen();
+        setTitleActionBar("Nhật Ký");
     }
 
     private void actionView() {

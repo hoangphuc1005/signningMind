@@ -7,7 +7,6 @@ import android.widget.ImageView;
 
 import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.base.BaseFragment;
-import com.MentalHealth.mental.infonew.view.InfoNewFragment;
 
 public class LibraryFragment extends BaseFragment implements View.OnClickListener {
     private ImageView imgVideo;
@@ -25,8 +24,9 @@ public class LibraryFragment extends BaseFragment implements View.OnClickListene
         actionView();
         setTitleActionBar("Thư viện");
         updateBackActionbarCustomBack();
-        handleBackPress();
         comeBackHomeScreen();
+        handleBackPress();
+
     }
 
     private void initView() {
@@ -47,7 +47,7 @@ public class LibraryFragment extends BaseFragment implements View.OnClickListene
                 onMoveParentFragments(new VideoDiaryFragment(), new Bundle());
                 break;
             case R.id.imgDocument:
-                onMoveParentFragments(new InfoNewFragment(), new Bundle());
+                onMoveParentFragments(new LibraryFragmentDetail(), new Bundle());
         }
     }
 }

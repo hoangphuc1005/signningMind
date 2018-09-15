@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.home.view.FragmentBottomNav;
 import com.MentalHealth.mental.home.view.FragmentHome;
+import com.MentalHealth.mental.home.view.SearchInfoFragment;
 import com.MentalHealth.mental.sos.view.SosFragment;
 
 
@@ -30,7 +31,12 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
     private DrawerLayout mDrawerLayout;
 
     protected View mRootView;
-
+    private Toolbar toolbar;
+    private ImageView imgSOS;
+    private ImageView imgSearch;
+    private ImageView imgHome;
+    private ImageView line;
+    private TextView tvToolbar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,8 +52,18 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
         } catch (InflateException e) {
             e.printStackTrace();
         }
-
+        initView();
         return mRootView;
+    }
+
+    private void initView() {
+        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        imgSOS = (ImageView) getActivity().findViewById(R.id.imgSOS);
+        imgSearch = (ImageView) getActivity().findViewById(R.id.imgSearch);
+        imgHome = (ImageView) getActivity().findViewById(R.id.imgHome);
+        line = (ImageView) getActivity().findViewById(R.id.viewLine);
+        tvToolbar = (TextView) getActivity().findViewById(R.id.tvTitleToolbar);
+        mDrawerLayout = (DrawerLayout) getActivity().findViewById(R.id.drawerLayouts);
     }
 
     public void switchChildFragmentWithBundle(String name, boolean addToBackStack, Bundle mBundle) {
@@ -97,6 +113,14 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
 
 
     public void onMoveFragmentMain(Fragment fragment, final Bundle bundle) {
+        fragment.setArguments(bundle);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.content_view, fragment);
+        transaction.commit();
+    }
+
+    public void onMoveFragmentSearch(Fragment fragment, final Bundle bundle) {
         fragment.setArguments(bundle);
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -163,8 +187,7 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
     }
 
     public void handleBackPress() {
-        final Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-        mDrawerLayout = (DrawerLayout) getActivity().findViewById(R.id.drawerLayouts);
+
         View view = getView();
         if (view == null)
             return;
@@ -173,6 +196,7 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
         view.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
+                showToolBar();
                 if (event.getAction() == KeyEvent.ACTION_UP && keyCode == KeyEvent.KEYCODE_BACK) {
                     // handle back button
                     if (mDrawerLayout.isDrawerOpen(Gravity.LEFT)) {
@@ -209,7 +233,6 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
     }
 
     public void handleBackPressMain() {
-        final Toolbar toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         mDrawerLayout = (DrawerLayout) getActivity().findViewById(R.id.drawerLayouts);
         View view = getView();
         if (view == null)
@@ -265,6 +288,7 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
             toolbar.setNavigationOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    showToolBar();
                     Fragment fragment = new FragmentHome();
                     onMoveFragmentMain(fragment, getArguments());
                 }
@@ -298,6 +322,22 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
 
     }
 
+    public void callSearch() {
+        imgSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                imgSearch.setVisibility(View.GONE);
+                imgSOS.setVisibility(View.GONE);
+                imgHome.setVisibility(View.GONE);
+                line.setVisibility(View.GONE);
+                tvToolbar.setVisibility(View.GONE);
+                Bundle bundle = new Bundle();
+                onMoveFragmentMain(new SearchInfoFragment(), bundle);
+            }
+        });
+
+    }
+
     public void removeFragmentBackstack() {
         if (getFragmentManager() != null) {
             boolean canback = getFragmentManager().getBackStackEntryCount() > 0;
@@ -313,7 +353,8 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
         tvToolbar.setText(title);
 
     }
-    public void comeBackHomeScreen(){
+
+    public void comeBackHomeScreen() {
         ImageView imgHome = (ImageView) getActivity().findViewById(R.id.imgHome);
         imgHome.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -322,6 +363,22 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
                 onMoveFragmentMain(new FragmentHome(), bundle);
             }
         });
+    }
+
+    public void showToolBar() {
+        imgSearch.setVisibility(View.VISIBLE);
+        imgSOS.setVisibility(View.VISIBLE);
+        imgHome.setVisibility(View.VISIBLE);
+        line.setVisibility(View.VISIBLE);
+        tvToolbar.setVisibility(View.VISIBLE);
+    }
+
+    public void hideToolBar() {
+        imgSearch.setVisibility(View.GONE);
+        imgSOS.setVisibility(View.GONE);
+        imgHome.setVisibility(View.GONE);
+        line.setVisibility(View.GONE);
+        tvToolbar.setVisibility(View.GONE);
     }
 
 }

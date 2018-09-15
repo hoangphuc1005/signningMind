@@ -8,6 +8,7 @@ import android.widget.EditText;
 
 import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.base.BaseFragment;
+import com.MentalHealth.mental.base.Utils;
 import com.MentalHealth.mental.dbdiary.DBHistory;
 import com.MentalHealth.mental.diary.model.DiaryModel;
 
@@ -27,6 +28,7 @@ public class AddNoteDiaryFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         initView();
         actionView();
+        comeBackHomeScreen();
 
     }
 
@@ -39,7 +41,8 @@ public class AddNoteDiaryFragment extends BaseFragment {
                 if (tvContentDiary.getText() != null && tvTitleDiary.getText() != null) {
                     diaryModel.setTitleOfDiary(tvTitleDiary.getText().toString());
                     diaryModel.setContentOfDiary(tvContentDiary.getText().toString());
-                    diaryModel.setDateOfDiary("2017/08/23");
+                    diaryModel.setDateOfDiary(Utils.getCurrentDay());
+                    diaryModel.setMonthOfDiary(Utils.getTime());
                     if (dbHistory.getDiary(diaryModel.getTitleOfDiary()) == null)
                         dbHistory.addDiary(diaryModel);
                     else

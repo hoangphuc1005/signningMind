@@ -43,23 +43,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:gravity="center"
         android:layout_marginLeft="@dimen/d10"
         android:layout_marginTop="@dimen/d10"
-        android:text="Shinning Mind là ứng dụng cung cấp cho"
+        android:text="Shining Mind là ứng dụng cung cấp cho"
         android:textColor="@color/colorWhite"
-        android:textSize="14sp"
-        />
+        android:textSize="14sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="@dimen/d10"
+        android:gravity="center"
         android:layout_marginTop="@dimen/d10"
         android:text="mọi người kiến thức về các vấn đề sức"
         android:textColor="@color/colorWhite"
-        android:textSize="14sp"
-        />
+        android:textSize="14sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -69,27 +69,27 @@
         android:layout_marginTop="@dimen/d10"
         android:text="khỏe tâm thần được phát triển bởi Trung tâm "
         android:textColor="@color/colorWhite"
-        android:textSize="14sp"/>
+        android:textSize="14sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:gravity="center"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginLeft="@dimen/d10"
         android:layout_marginRight="@dimen/d10"
         android:layout_marginTop="@dimen/d10"
         android:text="Thông tin Hướng nghiệp, Nghiên cứu và Ứng dụng Tâm lý "
         android:textColor="@color/colorWhite"
-        android:textSize="14sp"/>
+        android:textSize="14sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:gravity="center"
         android:layout_marginLeft="@dimen/d10"
         android:layout_marginRight="@dimen/d10"
         android:layout_marginTop="@dimen/d10"
         android:text="(CRISP) trực thuộc trường Đại học Giáo Dục - Trường Đại học Quốc Gia Hà Nội. "
         android:textColor="@color/colorWhite"
-        android:textSize="14sp"
-         />
+        android:textSize="14sp" />
 </LinearLayout>

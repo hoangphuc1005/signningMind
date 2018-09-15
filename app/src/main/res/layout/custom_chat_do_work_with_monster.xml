@@ -231,5 +231,19 @@
                 android:textColor="@color/white_f2"
                 android:textSize="@dimen/text12" />
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/lnSuccess"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_marginBottom="@dimen/d20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_btnok" />
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

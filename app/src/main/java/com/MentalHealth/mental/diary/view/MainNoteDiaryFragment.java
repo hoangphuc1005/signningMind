@@ -30,6 +30,7 @@ public class MainNoteDiaryFragment extends BaseFragment implements OnClickRecycl
         super.onViewCreated(view, savedInstanceState);
         initView();
         actionView();
+        updateBackActionbar();
     }
 
     private void actionView() {
@@ -59,7 +60,9 @@ public class MainNoteDiaryFragment extends BaseFragment implements OnClickRecycl
 
     @Override
     public void setOnItemClick(DiaryModel diaryModel) {
-        onMoveParentFragments(new DiaryDetailFragment(), new Bundle());
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("diaryModel", diaryModel);
+        onMoveParentFragments(new DiaryDetailFragment(), bundle);
     }
 
     @Override

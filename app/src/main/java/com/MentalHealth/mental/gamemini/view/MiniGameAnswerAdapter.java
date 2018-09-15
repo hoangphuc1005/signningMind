@@ -2,6 +2,7 @@ package com.MentalHealth.mental.gamemini.view;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -21,6 +22,8 @@ public class MiniGameAnswerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     private Context context;
     private List<AnswerModel> items;
+    SharedPreferences sharedpreferences;
+    public static final String MY_PREFERENCE = "Account";
 
 
     public MiniGameAnswerAdapter(Context mContext, List<AnswerModel> items) {
@@ -47,11 +50,16 @@ public class MiniGameAnswerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
-                if (items.get(position).getQuestion() == "Việt Nam") {
+                if (items.get(position).getTrueAnswer().equals(String.valueOf(position + 1))) {
                     items.get(position).setChoiceAnswer(View.VISIBLE);
                     itemViewHolder.imgIcons.setVisibility(items.get(position).getChoiceAnswer());
                     itemViewHolder.imgIcons.setImageResource(
                             R.drawable.ic_true);
+                    sharedpreferences = context.getSharedPreferences(MY_PREFERENCE,
+                            Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedpreferences.edit();
+                    editor.putBoolean("true", true);
+                    editor.apply();
 
                 } else {
                     items.get(position).setChoiceAnswer(View.VISIBLE);

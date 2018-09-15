@@ -35,14 +35,14 @@
             android:layout_centerInParent="true"
             android:src="@drawable/ic_search" />
 
-        <View
+        <ImageView
             android:id="@+id/viewLine"
             android:layout_width="1dp"
             android:layout_marginTop="@dimen/d10"
             android:layout_height="20dp"
             android:layout_marginRight="@dimen/d10"
             android:layout_toLeftOf="@id/imgSearch"
-            android:background="@color/colorGoogle"></View>
+            android:background="@color/colorGoogle"></ImageView>
 
         <ImageView
             android:id="@+id/imgHome"

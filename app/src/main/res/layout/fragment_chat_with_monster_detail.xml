@@ -142,6 +142,36 @@
             android:id="@+id/groupWorked"
             layout="@layout/custom_chat_do_work_with_monster"
             android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/rlAddTextSuccess"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/bg_game_blue"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/editFinal"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/d30"
+                android:background="@drawable/bg_login"
+                android:hint="Nhập tại đây"
+                android:padding="@dimen/d10"
+                android:textSize="@dimen/text16"
+                android:textStyle="italic" />
+
+            <ImageView
+                android:id="@+id/imgSuccess"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:layout_marginRight="@dimen/d20"
+                android:src="@drawable/ic_btnok" />
+        </RelativeLayout>
     </LinearLayout>
 
 
@@ -187,9 +217,9 @@
                                 android:layout_height="40dp"
                                 android:layout_marginLeft="@dimen/d10"
                                 android:layout_toRightOf="@id/imgMonster"
-                                android:background="@color/colorWhite"
+                                android:background="@drawable/bg_login"
                                 android:gravity="center"
-                                android:text="Hom nay ban cam thay the nao? "
+                                android:text="Hôm nay bạn cảm thấy thế nào? "
                                 android:textColor="@color/color_menu" />
                         </RelativeLayout>
 
@@ -199,7 +229,7 @@
                             android:layout_height="40dp"
                             android:layout_alignParentRight="true"
                             android:layout_below="@id/rlHeaderChat"
-                            android:background="@color/colorWhite"
+                            android:background="@drawable/bg_login"
                             android:gravity="center"
                             android:text="ToT"
                             android:textSize="@dimen/text18"
@@ -228,9 +258,9 @@
                                 android:layout_height="40dp"
                                 android:layout_marginLeft="@dimen/d10"
                                 android:layout_toRightOf="@id/imgMonsterDo"
-                                android:background="@color/colorWhite"
+                                android:background="@drawable/bg_login"
                                 android:gravity="center"
-                                android:text="Hom nay ban lam nhung gi? "
+                                android:text="Hôm nay bạn đã làm những gì? "
                                 android:textColor="@color/color_menu" />
                         </RelativeLayout>
 
@@ -240,9 +270,8 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_below="@id/rlContentChat"
-                            android:background="@color/colorWhite"
+                            android:background="@drawable/bg_login"
                             android:gravity="center"
-                            android:text="lam view, Thu dan, Tiec tung, Xem phim"
                             android:textSize="@dimen/text18"
                             android:visibility="gone" />
                     </RelativeLayout>
@@ -269,11 +298,12 @@
                                 android:layout_height="60dp"
                                 android:layout_marginLeft="@dimen/d10"
                                 android:layout_toRightOf="@id/imgMonsterAddText"
-                                android:background="@color/colorWhite"
+                                android:background="@drawable/bg_login"
                                 android:gravity="center"
-                                android:text="Hom nay dieu gi khien ban cam thay cuoc song  co y nghia? "
+                                android:text="Hôm nay điều gì khiến bạn thấy cuộc sống có ý nghĩa? "
                                 android:textColor="@color/color_menu" />
                         </RelativeLayout>
+
 
                         <TextView
                             android:id="@+id/tvDoAddText"
@@ -282,7 +312,7 @@
                             android:layout_alignParentRight="true"
                             android:layout_below="@id/rlAddText"
                             android:layout_marginTop="@dimen/d20"
-                            android:background="@color/colorWhite"
+                            android:background="@drawable/bg_login"
                             android:gravity="center"
                             android:text="lam view, Thu dan, Tiec tung, Xem phim"
                             android:textSize="@dimen/text18"

@@ -1,34 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rlBackground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/rlBackground"
     android:orientation="vertical">
 
     <ImageView
         android:id="@+id/imgBackground"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:src="@drawable/bg_slide_a" />
+        android:adjustViewBounds="true" />
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@id/imgBackground"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
-        android:text="hsjsdjhf" />
+        android:layout_alignBottom="@+id/imgBackground"
+        android:layout_alignLeft="@+id/imgBackground"
+        android:layout_alignRight="@+id/imgBackground"
+        android:layout_margin="1dp"
+        android:ellipsize="end"
+        android:gravity="bottom"
+        android:lines="2"
+        android:paddingBottom="@dimen/d20"
+        android:paddingLeft="@dimen/d20"
+        android:paddingRight="@dimen/d20"
+        android:text="adasdadada"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text18"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tv_desc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/d300"
+        android:ellipsize="end"
         android:gravity="center|left"
-        android:text="hsjsdjhf" />
+        android:lines="2"
+        android:text="hsjsdjhf"
+        android:visibility="gone" />
 
 
 </RelativeLayout>
