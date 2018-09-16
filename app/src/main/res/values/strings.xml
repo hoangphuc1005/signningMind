@@ -38,4 +38,36 @@
     <string name="dummy_title_info_1">Rối loạn lo âu là bệnh gì?</string>
     <string name="dummy_title_info_two">Stress là bệnh gì?</string>
     <string name="dummy_title_info_three">Rối loạn lưỡng cực là bệnh gì?</string>
+    <string name="title_about_us">Về chúng tôi</string>
+    <string name="title_about_us_1">Sứ mệnh của chúng tôi:</string>
+    <string name="title_about_us_2">Các dịch vụ của chúng tôi</string>
+    <string name="title_about_us_3">Nhân sự của chúng tôi:</string>
+    <string name="title_about_us_4">Chất lượng thông tin trên App:</string>
+    <string name="title_about_us_5">Liên lạc với chúng tôi:</string>
+    <string name="about_us_1">Trung tâm thông tin hướng nghiệp và nghiên cứu, ứng dụng tâm lý (CRISP) là đơn vị thiết kế ứng dụng trên điện thoại Shinning Mind - ứng dụng cung cấp thông tin về Sức khỏe tâm thần.</string>
+    <string name="about_us_3">- Thúc đẩy việc ứng dụng kiến thức tâm lý để giải quyết các vấn đề khó khăn của con người cũng như phát triển tiềm năng của mỗi cá nhân trong học tập, giáo dục, sức khỏe và công việc, nghề nghiệp.</string>
+    <string name="about_us_4">- Thúc đẩy nâng cao hiểu biết về sức khỏe tâm thần cho cộng đồng.</string>
+    <string name="abut_us_5">•	Cung cấp dịch vụ đánh giá tâm lý (đánh giá trí tuệ, cảm xúc, hành vi, v.v.) và thích ứng những thang đo tâm lý mới.</string>
+    <string name="abut_us_6">•	Phát triển các chương trình can thiệp, cung cấp trị liệu cho những vấn đề liên quan tới sức khỏe tâm lý cho trẻ em và trẻ vị thành niên</string>
+    <string name="abut_us_7">•	Phát triển các mô hình tham vấn và hỗ trợ tâm lý trong trường học và cộng đồng</string>
+    <string name="abut_us_8">•	Tổ chứ Khóa tập huấn, bồi dưỡng liên quan tới những vấn đề trắc nghiệm tâm lý (WISC, ASEBA, v.v.), tham vấn tâm lý học và giáo dục, </string>
+    <string name="abut_us_9">•	Tham vấn, trị liệu tâm lý cá nhân </string>
+
+    <string name="about_us_5">- PGS.TS Đặng Hoàng Minh – Giám đốc
+- PGS.TS Bahr Weiss – Cố vấn chuyên môn
+- TS. Amie Alley Pollack – Cố vấn chuyên môn
+- Ths. Hồ Thu Hà – Nghiên cứu viên
+- CN. Kiều Thị Anh Đào – Trợ lý nghiên cứu
+- CN  Vũ Hồng Vân – Trợ lý nghiên cứu
+</string>
+    <string name="about_us_6">- Thông tin về sức khỏe tâm thần đều chúng tôi được cập nhật mới nhất trên các website uy tín như: </string>
+    <string name="about_us_7">www.nimh.nih.gov, www.apa.org, www.helpguide.org , www.nhs.uk, …</string>
+    <string name="about_us_8">- Toàn bộ thông tin về sức khỏe tâm thần trước khi được đưa vào app Shinning Mind đều được đội ngũ cố vấn chuyên môn kiểm duyệt.</string>
+    <string name="about_us_9">
+Phòng 203-204, tòa nhà C0, 182 Lương Thế Vinh, Thanh Xuân, Hà Nội.
+SĐT: (84-24) 7301 7123, ext 3203; (+84) 1687 885 182.
+Email: crisp.ued@gmail.com
+Trang web: crisp.education.vnu.edu.vn hoặc crisp.vnu.edu.vn
+FB: https://www.facebook.com/crisp.ued/
+</string>
 </resources>

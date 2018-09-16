@@ -27,12 +27,12 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.MentalHealth.mental.home.view.MainFragment.USER_ID;
-import static com.MentalHealth.mental.monthinfo.view.MonthinfoDetailFragment.MY_PREFERENCE;
 
 public class MonthInfoFragment extends BaseFragment implements MonthInfoAdapter.OnClickRecycleView {
     private MonthInfoAdapter infoAdapter;
     private ArrayList<DataAlldayModel> listInfoNew;
     private RecyclerView recyclerInfo;
+    public static final String MY_PREFERENCE = "Account";
     SharedPreferences sharedpreferences;
     private SOService mService;
 
@@ -101,7 +101,7 @@ public class MonthInfoFragment extends BaseFragment implements MonthInfoAdapter.
         Fragment fragment = null;
         Bundle bundle = new Bundle();
         bundle.putInt("day", position);
-        fragment = new MonthinfoDetailFragment();
+        fragment = new DayDetailSlideFragment();
         onMoveParentFragments(fragment, bundle);
     }
 }

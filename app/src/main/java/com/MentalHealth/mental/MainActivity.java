@@ -15,8 +15,7 @@ import com.MentalHealth.mental.gamemini.view.MiniGameAnswerFragment;
 import com.MentalHealth.mental.home.login.model.LoginModel;
 import com.MentalHealth.mental.home.view.MainFragment;
 import com.MentalHealth.mental.infonew.view.InfoNewDetailFragment;
-import com.MentalHealth.mental.monthinfo.view.MonthInfoFragment;
-import com.MentalHealth.mental.monthinfo.view.MonthinfoDetailFragment;
+import com.MentalHealth.mental.monthinfo.view.DayDetailSlideFragment;
 import com.MentalHealth.mental.serverapi.ApiUtils;
 import com.MentalHealth.mental.serverapi.SOService;
 import com.MentalHealth.mental.servicefcm.NotificationUtils;
@@ -59,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         moveFragment(new InfoNewDetailFragment());
                         break;
                     case "1":
-                        moveFragment(new MonthinfoDetailFragment());
+                        moveFragment(new DayDetailSlideFragment());
                         break;
                     case "2":
                         moveFragment(new ChatWithMonsterFragment());

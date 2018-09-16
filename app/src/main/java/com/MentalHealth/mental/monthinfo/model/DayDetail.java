@@ -22,7 +22,7 @@ public class DayDetail {
     private String video;
     @SerializedName("text")
     @Expose
-    private Object text;
+    private String text;
     @SerializedName("created_at")
     @Expose
     private String createdAt;
@@ -70,11 +70,11 @@ public class DayDetail {
         this.video = video;
     }
 
-    public Object getText() {
+    public String getText() {
         return text;
     }
 
-    public void setText(Object text) {
+    public void setText(String text) {
         this.text = text;
     }
 
