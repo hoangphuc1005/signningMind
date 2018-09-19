@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.MentalHealth.mental.R;
-import com.MentalHealth.mental.servicefcm.notifi.model.NotificationModel;
+import com.MentalHealth.mental.servicefcm.model.NotificationModel;
 
 import java.util.List;
 
@@ -37,8 +37,27 @@ public class NotificationListAdapter extends RecyclerView.Adapter<RecyclerView.V
         NotificationListAdapter.ItemViewHolder itemViewHolder = (NotificationListAdapter.ItemViewHolder) holder;
         final NotificationModel notificationModel = items.get(position);
         itemViewHolder.tvTitle.setText(notificationModel.getTitle());
-        itemViewHolder.tvMessage.setText(notificationModel.getMessage());
-
+        switch (notificationModel.getType()) {
+            case "0":
+                itemViewHolder.tvMessage.setText("Tin Tức");
+                break;
+            case "1":
+                itemViewHolder.tvMessage.setText("30 Ngày");
+                break;
+            case "2":
+                itemViewHolder.tvMessage.setText("Cảm Xúc");
+                break;
+            case "3":
+                itemViewHolder.tvMessage.setText("Quiz");
+                break;
+        }
+//        itemViewHolder.tvMessage.setText(notificationModel.getMessage());
+        itemViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickRecycleView.setOnItemClick(notificationModel.getType(), notificationModel.getId());
+            }
+        });
 
     }
 
@@ -57,17 +76,12 @@ public class NotificationListAdapter extends RecyclerView.Adapter<RecyclerView.V
             tvTitle = (TextView) itemView.findViewById(R.id.tvTitleNotification);
             tvMessage = (TextView) itemView.findViewById(R.id.tvMessageNotification);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    clickRecycleView.setOnItemClick(getLayoutPosition());
-                }
-            });
+
         }
     }
 
 
     public interface OnClickRecycleView {
-        void setOnItemClick(int position);
+        void setOnItemClick(String type, String id);
     }
 }

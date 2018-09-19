@@ -19,6 +19,7 @@ import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.base.BaseFragment;
 import com.MentalHealth.mental.gamemini.view.GameMiniFragment;
 import com.MentalHealth.mental.menu.AboutUsFragment;
+import com.MentalHealth.mental.menu.FavoriteFragment;
 import com.MentalHealth.mental.servicefcm.notifi.view.LisNotificationFragment;
 
 
@@ -88,8 +89,8 @@ public class MainFragment extends BaseFragment implements NavDrawerFragment.Frag
                 onMoveFragmentMain(fragmentHome1, bundle);
                 break;
             case 2:
-                fragmentHome = new LisNotificationFragment();
-                onMoveFragmentMain(fragmentHome, bundle);
+                Fragment fragmentHome2 = new FavoriteFragment();
+                onMoveFragmentMain(fragmentHome2, bundle);
                 break;
             case 3:
                 fragmentHome = new LisNotificationFragment();

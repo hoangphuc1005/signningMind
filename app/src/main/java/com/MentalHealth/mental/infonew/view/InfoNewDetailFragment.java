@@ -1,6 +1,8 @@
 package com.MentalHealth.mental.infonew.view;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.base.BaseFragment;
 import com.MentalHealth.mental.base.Constant;
+import com.MentalHealth.mental.infonew.model.Data;
 import com.MentalHealth.mental.infonew.model.InfoNewModel;
 import com.MentalHealth.mental.library.model.DoccumentDetail;
 import com.MentalHealth.mental.serverapi.ApiUtils;
@@ -30,12 +33,17 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
     private TextView tvLastContent;
     private int position, positionInfo, positionDoc, positionMain;
     private String id;
+    private Data data;
     private RelativeLayout rlDoc, rlFavorite;
     Bundle bundle;
     private String imagePath;
     private SOService mService;
     private ImageView imgFavorite, imgInfoNewDetail;
     private SwipeRefreshLayout swipeRefreshInfo;
+    private boolean paused = false;
+    public static final String MY_PREFERENCE = "Account";
+    public static final String CHECK_FAVORITE = "CHECK";
+    SharedPreferences sharedpreferences;
 
     @Override
     public int getLayoutId() {
@@ -52,6 +60,8 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
     }
 
     private void initView() {
+        sharedpreferences = getContext().getSharedPreferences(MY_PREFERENCE,
+                Context.MODE_PRIVATE);
         mService = ApiUtils.getSOService();
         swipeRefreshInfo = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshInfo);
         swipeRefreshInfo.setOnRefreshListener(this);
@@ -63,7 +73,17 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
         imgFavorite = (ImageView) findViewById(R.id.imgFavorite);
         rlDoc = (RelativeLayout) findViewById(R.id.rlDocument);
         rlFavorite = (RelativeLayout) findViewById(R.id.rlFavorite);
+        String check = sharedpreferences.getString(CHECK_FAVORITE, "");
+        if (!check.isEmpty()) {
+            if (check.equals("check")) {
+                imgFavorite.setImageResource(R.drawable.ic_thich);
+                paused = true;
+            } else if (check.equals("unCheck")) {
+                imgFavorite.setImageResource(R.drawable.ic_favorite);
+                paused = false;
 
+            }
+        }
         addDataInfo();
     }
 
@@ -71,16 +91,24 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
         imgFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                imgFavorite.setImageResource(R.drawable.ic_favorite);
-                InfoNewModel infoNewModel = new InfoNewModel();
                 final DBInformNew dbInfo = new DBInformNew(getActivity());
-                infoNewModel.setId(String.valueOf(position));
-                infoNewModel.setTitleInfo(tvTitle.getText().toString());
-                infoNewModel.setImgInfo(imagePath);
-
-                if (dbInfo.getUser(infoNewModel.getId()) == null) {
-//                    dbInfo.addUser(infoNewModel);
+                paused = !paused;
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+                if (paused == true) {
+                    imgFavorite.setImageResource(R.drawable.ic_thich);
+                    dbInfo.deleteUserById(data);
+                    editor.putString(CHECK_FAVORITE, "check");
+                } else {
+                    imgFavorite.setImageResource(R.drawable.ic_favorite);
+                    editor.putString(CHECK_FAVORITE, "unCheck");
+                    if (dbInfo.getUser(String.valueOf(data.getId())) == null) {
+                        dbInfo.addUser(data);
+                    } else {
+                        dbInfo.updateUser(data);
+                    }
                 }
+//                imgFavorite.setImageResource(R.drawable.ic_favorite);
+
 
             }
         });
@@ -93,11 +121,10 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
         progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         // show it
         progressDoalog.show();
-
-        positionDoc = bundle.getInt("doccument");
-        positionInfo = bundle.getInt("InfoNew");
-        positionMain = bundle.getInt("sliding_menu");
         id = bundle.getString("id");
+        positionDoc = bundle.getInt("doccument");
+        data = (Data) bundle.getSerializable("InfoNew");
+        positionMain = bundle.getInt("sliding_menu");
         if (positionDoc > 0) {
             setTitleActionBar("Tài Liệu");
             rlDoc.setVisibility(View.VISIBLE);
@@ -105,15 +132,14 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
             position = positionDoc;
             getDataDoc(progressDoalog);
         } else {
-            if (positionInfo > 0) {
-                setTitleActionBar("Tin tức");
-                position = positionInfo;
-                getDataInfo(progressDoalog);
-            } else if (id != null) {
+            if (id != null) {
                 position = Integer.parseInt(id);
                 getDataInfo(progressDoalog);
             } else if (positionMain > 0) {
                 position = positionMain;
+                getDataInfo(progressDoalog);
+            } else if (data != null) {
+                position = data.getId();
                 getDataInfo(progressDoalog);
             }
 

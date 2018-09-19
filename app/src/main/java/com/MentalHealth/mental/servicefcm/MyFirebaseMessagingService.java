@@ -16,6 +16,9 @@ import com.MentalHealth.mental.MainActivity;
 import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.base.Constant;
 import com.MentalHealth.mental.constant.Constants;
+import com.MentalHealth.mental.infonew.model.InfoNewModel;
+import com.MentalHealth.mental.servicefcm.model.DBNotification;
+import com.MentalHealth.mental.servicefcm.model.NotificationModel;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
@@ -124,7 +127,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             String id = json.getString("id");
             String type = json.getString("type");
             Log.e(TAG, "title: " + title);
-
+            NotificationModel notificationModel = new NotificationModel();
+            notificationModel.setType(type);
+            notificationModel.setId(id);
+            notificationModel.setTitle(title);
+            DBNotification dbNotification = new DBNotification(getApplicationContext());
+            dbNotification.addUser(notificationModel);
 
             if (!NotificationUtils.isAppIsInBackground(getApplicationContext())) {
                 // app is in foreground, broadcast the push message
@@ -147,7 +155,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent,
                         PendingIntent.FLAG_ONE_SHOT);
                 builder.setContentIntent(contentIntent);
-                builder.setFullScreenIntent(contentIntent,true);
+                builder.setFullScreenIntent(contentIntent, true);
                 builder.setSound(music);
                 NotificationManager manager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
                 manager.notify(0, builder.build());
@@ -173,7 +181,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 PendingIntent contentIntent = PendingIntent.getActivity(getApplicationContext(), 0, notificationIntent,
                         PendingIntent.FLAG_ONE_SHOT);
                 builder.setContentIntent(contentIntent);
-                builder.setFullScreenIntent(contentIntent,true);
+                builder.setFullScreenIntent(contentIntent, true);
                 builder.setSound(music);
                 NotificationManager manager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
                 manager.notify(0, builder.build());

@@ -59,7 +59,7 @@ public class InfoNewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickRecycleView.setOnItemClick(infoNewModel.getId());
+                clickRecycleView.setOnItemClick(infoNewModel);
             }
         });
 
@@ -94,7 +94,7 @@ public class InfoNewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
 
 
     public interface OnClickRecycleView {
-        void setOnItemClick(int position);
+        void setOnItemClick(Data position);
     }
 
     @Override

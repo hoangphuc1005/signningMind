@@ -140,10 +140,10 @@ public class SearchInfoFragment extends BaseFragment implements InfoNewAdapter.O
     }
 
     @Override
-    public void setOnItemClick(int position) {
+    public void setOnItemClick(Data position) {
         Fragment fragment;
         Bundle bundle = new Bundle();
-        bundle.putInt("InfoNew", position);
+        bundle.putSerializable("InfoNew", position);
         fragment = new InfoNewDetailFragment();
         onMoveParentFragments(fragment, bundle);
         showToolBar();

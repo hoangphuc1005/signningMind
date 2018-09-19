@@ -112,6 +112,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
 
     public void addData() {
         slidingList = new ArrayList();
+        slidingList.clear();
         for (int i = 0; i < tvItems.length; i++) {
             slidingList.add(new SlidingMenuModel(imgIcons.getResourceId(i, -1), tvItems[i]));
         }
@@ -123,11 +124,8 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 boolean isSignOut = getString(R.string.txt_sign_out).equals(tvItems[position]);
                 if ( isSignOut==false) {
-                    if(pos == position){
-                        mDrawerListener.onDrawerItemSelected(view, 0);
-                    }else{
+
                         mDrawerListener.onDrawerItemSelected(view, position);
-                    }
 
                     if (position < (tvItems.length - 1)) {
                         slidingMenuAdapter.setPosition(tvItems[position]);
