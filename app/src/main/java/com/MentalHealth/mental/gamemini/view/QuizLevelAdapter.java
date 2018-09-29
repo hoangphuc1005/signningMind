@@ -37,21 +37,30 @@ public class QuizLevelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        QuizLevelAdapter.ItemViewHolder itemViewHolder = (QuizLevelAdapter.ItemViewHolder) holder;
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+        final QuizLevelAdapter.ItemViewHolder itemViewHolder = (QuizLevelAdapter.ItemViewHolder) holder;
         final LevelDataQuiz infoNewModel = items.get(position);
         sharedpreferences = context.getSharedPreferences(MY_PREFERENCE,
                 Context.MODE_PRIVATE);
         Boolean check = sharedpreferences.getBoolean("LEVEL", false);
+        int levelID = sharedpreferences.getInt("LEVEL_ID", 0);
         if (position == 0) {
             itemViewHolder.imgIcons.setBackgroundResource(R.drawable.img_framelevel);
         } else {
-            itemViewHolder.imgIcons.setEnabled(false);
 
-            if (check == false) {
-                itemViewHolder.imgIcons.setBackgroundResource(R.drawable.img_framelevellock);
-            } else {
+
+            if (infoNewModel.getOrder() <= levelID) {
                 itemViewHolder.imgIcons.setBackgroundResource(R.drawable.img_framelevel);
+
+            } else {
+                itemViewHolder.imgIcons.setBackgroundResource(R.drawable.img_framelevellock);
+                holder.itemView.setEnabled(false);
+//                itemViewHolder.imgIcons.setBackgroundResource(R.drawable.img_framelevel);
+//                items.get(levelID - 1).setImgBgChoice(R.drawable.img_framelevel);
+//                items.get(levelID - 1).setCheck(true);
+//                itemViewHolder.imgIcons.setBackgroundResource(items.get(levelID - 1).getImgBgChoice());
+//                holder.itemView.setEnabled(items.get(levelID - 1).getCheck());
+
             }
         }
 
@@ -59,7 +68,8 @@ public class QuizLevelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clickRecycleView.setOnItemClick(infoNewModel.getId());
+                clickRecycleView.setOnItemClick(infoNewModel.getId(), infoNewModel.getOrder());
+
             }
         });
     }
@@ -89,6 +99,6 @@ public class QuizLevelAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
 
     public interface OnClickRecycleView {
-        void setOnItemClick(int position);
+        void setOnItemClick(int position, int levelID);
     }
 }

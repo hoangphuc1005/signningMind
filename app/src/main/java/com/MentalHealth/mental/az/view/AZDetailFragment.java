@@ -57,7 +57,7 @@ public class AZDetailFragment extends BaseFragment implements SwipeRefreshLayout
         updateBackActionbar();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+
     private void actionView() {
         adapter = new AZDetailAdapter(getContext(), listGroup);
         expandableAZ.setAdapter(adapter);

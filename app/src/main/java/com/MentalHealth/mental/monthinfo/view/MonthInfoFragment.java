@@ -48,7 +48,7 @@ public class MonthInfoFragment extends BaseFragment implements MonthInfoAdapter.
         setTitleActionBar("30 Ngày");
         updateBackActionbar();
         callSOS();
-        updateBackActionbarCustomBack();
+//        updateBackActionbarCustomBack();
         handleBackPress();
         comeBackHomeScreen();
     }

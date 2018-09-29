@@ -19,7 +19,7 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
         super.onTokenRefresh();
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
         Log.d(TAG, "Refreshed token: " + refreshedToken);
-        FirebaseMessaging.getInstance().subscribeToTopic("signning_mine");;
+        FirebaseMessaging.getInstance().subscribeToTopic("Shining_Mind");
 //        FirebaseMessaging.getInstance().subscribeToTopic("intervn-news");
 
         // Saving reg id to shared preferences

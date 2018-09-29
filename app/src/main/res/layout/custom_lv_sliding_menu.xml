@@ -14,25 +14,36 @@
             android:id="@+id/imgIconsMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="@dimen/d20"
-            android:src="@drawable/menu_home"/>
+            android:src="@drawable/menu_home" />
 
         <TextView
-            android:id="@+id/tvItemsMenu"
+            android:id="@+id/tvCountNoti"
+            android:visibility="gone"
+            android:layout_marginLeft="@dimen/d5"
+            android:textColor="@color/colorYeallow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/imgIconsMenu"
+            android:text="123" />
+
+        <TextView
+            android:layout_marginLeft="@dimen/d50"
+            android:id="@+id/tvItemsMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/imgIconsMenu"
             android:text="Trang chu"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text16" />
 
     </RelativeLayout>
+
     <View
-        android:layout_marginTop="@dimen/d10"
-        android:layout_marginBottom="@dimen/d10"
-        android:background="@color/colorWhite"
         android:layout_width="match_parent"
-        android:layout_height="1dp"/>
+        android:layout_height="1dp"
+        android:layout_marginBottom="@dimen/d10"
+        android:layout_marginTop="@dimen/d10"
+        android:background="@color/colorWhite" />
 
 </LinearLayout>

@@ -9,6 +9,7 @@ import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,8 +22,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SlidingMonthAdapter extends PagerAdapter {
-    private TextView tvTitle;
-    private ImageView imgBackground;
+    private TextView tvTitle,tvTitleMonth;
+    private WebView imgBackground;
     private ImageView imgBackVideo;
     private Context context;
     private List<DayDetail> list;
@@ -42,7 +43,8 @@ public class SlidingMonthAdapter extends PagerAdapter {
         // RelativeLayout viewLeft = (RelativeLayout) layout.findViewById(R.id.relayPost);
         final DayDetail fixture = list.get(position);
         tvTitle = (TextView) layout.findViewById(R.id.tv_title);
-        imgBackground = (ImageView) layout.findViewById(R.id.imgBackground);
+        tvTitleMonth=(TextView)layout.findViewById(R.id.tvTitleMonth);
+        imgBackground = (WebView) layout.findViewById(R.id.imgBackground);
         imgBackVideo = (ImageView) layout.findViewById(R.id.img_video_month);
 
         addFixture(fixture);
@@ -56,6 +58,7 @@ public class SlidingMonthAdapter extends PagerAdapter {
     }
 
     private void addFixture(final DayDetail mentalHelpModel) {
+        tvTitleMonth.setText(mentalHelpModel.getTitle());
         if (mentalHelpModel.getText() != null) {
             tvTitle.setVisibility(View.VISIBLE);
             SpannableString content = new SpannableString(Html.fromHtml(mentalHelpModel.getText()));
@@ -63,11 +66,9 @@ public class SlidingMonthAdapter extends PagerAdapter {
         }
         if (mentalHelpModel.getImage() != null) {
             imgBackground.setVisibility(View.VISIBLE);
-            Picasso.with(context)
-                    .load(Constant.URL_IMAGE + mentalHelpModel.getImage())
-                    .placeholder(R.drawable.ic_tram_cam)
-                    .fit().centerInside()
-                    .into(imgBackground);
+            imgBackground.getSettings().setJavaScriptEnabled(true);
+            imgBackground.loadUrl(Constant.URL_IMAGE + mentalHelpModel.getImage());
+
         }
         if (mentalHelpModel.getVideo() != null) {
             imgBackVideo.setVisibility(View.VISIBLE);

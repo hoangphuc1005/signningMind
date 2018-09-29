@@ -35,6 +35,7 @@ public class MiniGameAnswerFragment extends BaseFragment implements View.OnClick
     private RecyclerView recyclerInfo;
     private String aboutAnswer;
     int question = 0;
+    int levelID = 0;
     int size = 0;
     private int id;
     Bundle bundle;
@@ -66,6 +67,10 @@ public class MiniGameAnswerFragment extends BaseFragment implements View.OnClick
         sharedpreferences = getContext().getSharedPreferences(MY_PREFERENCE,
                 Context.MODE_PRIVATE);
         bundle = getArguments();
+        levelID = bundle.getInt("quiz_level");
+        if (levelID > 0) {
+            sharedpreferences.edit().putInt("test", levelID).apply();
+        }
         String idQuiz = bundle.getString("id");
         if (idQuiz != null) {
             id = Integer.parseInt(idQuiz);
@@ -88,11 +93,11 @@ public class MiniGameAnswerFragment extends BaseFragment implements View.OnClick
         mService.getQuizInfo(String.valueOf(id)).enqueue(new Callback<QuizModelDetail>() {
             @Override
             public void onResponse(Call<QuizModelDetail> call, Response<QuizModelDetail> response) {
-                if (response != null) {
+                if (response.isSuccessful()) {
                     size = response.body().getData().size();
                     if (question < size) {
                         tvTitleAnswer.setText(response.body().getData().get(question).getContent());
-                        tvLevel.setText("LEVEL" + " " + response.body().getData().get(question).getLevelId());
+                        tvLevel.setText("LEVEL" + " " + sharedpreferences.getInt("test",0));
                         aboutAnswer = response.body().getData().get(question).getAboutAnswer();
                         listInfoNew.add(new AnswerModel(response.body().getData().get(question).getChoose1(),
                                 R.drawable.img_a, response.body().getData().get(question).getAnswer()));
@@ -113,10 +118,12 @@ public class MiniGameAnswerFragment extends BaseFragment implements View.OnClick
                                 Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean("LEVEL", true);
+                        editor.putInt("LEVEL_ID", sharedpreferences.getInt("test", 0) + 1);
                         editor.apply();
                         onMoveParentFragments(new GameMiniFragment(), new Bundle());
                         editor.remove("ID");
                         editor.remove(CURRENT_COUNT);
+                        editor.apply();
                     }
 
                 }

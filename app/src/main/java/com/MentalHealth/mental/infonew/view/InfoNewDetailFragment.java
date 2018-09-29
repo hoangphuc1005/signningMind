@@ -1,5 +1,6 @@
 package com.MentalHealth.mental.infonew.view;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -9,6 +10,8 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.Html;
 import android.text.SpannableString;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -38,7 +41,8 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
     Bundle bundle;
     private String imagePath;
     private SOService mService;
-    private ImageView imgFavorite, imgInfoNewDetail;
+    private ImageView imgFavorite;
+    private WebView imgInfoNewDetail;
     private SwipeRefreshLayout swipeRefreshInfo;
     private boolean paused = false;
     public static final String MY_PREFERENCE = "Account";
@@ -69,22 +73,21 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
         tvTitle = (TextView) findViewById(R.id.tvTitleInfoNewDetail);
         tvHeaderContent = (TextView) findViewById(R.id.tvTitleHeaderInfoNewDetail);
         tvLastContent = (TextView) findViewById(R.id.tvLastContentInfoNewDetail);
-        imgInfoNewDetail = (ImageView) findViewById(R.id.imgInfoNewDetail);
+        imgInfoNewDetail = (WebView) findViewById(R.id.imgInfoNewDetail);
         imgFavorite = (ImageView) findViewById(R.id.imgFavorite);
         rlDoc = (RelativeLayout) findViewById(R.id.rlDocument);
         rlFavorite = (RelativeLayout) findViewById(R.id.rlFavorite);
-        String check = sharedpreferences.getString(CHECK_FAVORITE, "");
-        if (!check.isEmpty()) {
-            if (check.equals("check")) {
-                imgFavorite.setImageResource(R.drawable.ic_thich);
-                paused = true;
-            } else if (check.equals("unCheck")) {
-                imgFavorite.setImageResource(R.drawable.ic_favorite);
-                paused = false;
-
+        addDataInfo();
+        final DBInformNew dbInfo = new DBInformNew(getActivity());
+        if (data != null) {
+            if (dbInfo.getUser(String.valueOf(data.getId())) != null) {
+                if (data.getTitle().equals(dbInfo.getUser(String.valueOf(data.getId())).getTitle())) {
+                    imgFavorite.setImageResource(R.drawable.ic_heart_android);
+                }
             }
         }
-        addDataInfo();
+
+
     }
 
     private void actionView() {
@@ -99,7 +102,7 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
                     dbInfo.deleteUserById(data);
                     editor.putString(CHECK_FAVORITE, "check");
                 } else {
-                    imgFavorite.setImageResource(R.drawable.ic_favorite);
+                    imgFavorite.setImageResource(R.drawable.ic_heart_android);
                     editor.putString(CHECK_FAVORITE, "unCheck");
                     if (dbInfo.getUser(String.valueOf(data.getId())) == null) {
                         dbInfo.addUser(data);
@@ -149,6 +152,7 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
 
     private void getDataDoc(final ProgressDialog progressDialog) {
         mService.getDocumentDetail(String.valueOf(position)).enqueue(new Callback<DoccumentDetail>() {
+            @SuppressLint("SetJavaScriptEnabled")
             @Override
             public void onResponse(Call<DoccumentDetail> call, Response<DoccumentDetail> response) {
                 if (response != null) {
@@ -157,10 +161,8 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
                     SpannableString noidungspanned1 = new SpannableString(Html.fromHtml(response.body().getDescription()));
                     seTTextContent(response.body().getTitle(), noidungspanned1,
                             noidungspanned);
-                    Picasso.with(getContext())
-                            .load(Constant.URL_IMAGE + response.body().getImage())
-                            .fit().centerInside()
-                            .into(imgInfoNewDetail);
+                    imgInfoNewDetail.getSettings().setJavaScriptEnabled(true);
+                    imgInfoNewDetail.loadUrl(Constant.URL_IMAGE + response.body().getImage());
                 }
             }
 
@@ -173,6 +175,7 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
 
     private void getDataInfo(final ProgressDialog progressDialog) {
         mService.getInfoNewDetail(String.valueOf(position)).enqueue(new Callback<DoccumentDetail>() {
+            @SuppressLint("SetJavaScriptEnabled")
             @Override
             public void onResponse(Call<DoccumentDetail> call, Response<DoccumentDetail> response) {
                 if (response != null) {
@@ -182,11 +185,8 @@ public class InfoNewDetailFragment extends BaseFragment implements SwipeRefreshL
                     SpannableString noidungspanned1 = new SpannableString(Html.fromHtml(response.body().getDescription()));
                     seTTextContent(response.body().getTitle(), noidungspanned1,
                             noidungspanned);
-                    Picasso.with(getContext())
-                            .load(Constant.URL_IMAGE + response.body().getImage())
-                            .placeholder(R.drawable.test_info)
-                            .fit().centerInside()
-                            .into(imgInfoNewDetail);
+                    imgInfoNewDetail.getSettings().setJavaScriptEnabled(true);
+                    imgInfoNewDetail.loadUrl(Constant.URL_IMAGE + response.body().getImage());
                 }
             }
 

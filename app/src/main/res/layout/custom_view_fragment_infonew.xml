@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bg_info_new"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -9,12 +10,22 @@
     android:layout_marginTop="@dimen/d20"
     android:orientation="vertical">
 
+    <WebView
+        android:id="@+id/webView1"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="WebViewLayout"></WebView>
+
     <ImageView
         android:id="@+id/imgInfo"
-        android:adjustViewBounds="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/img_video_youtube" />
+        android:layout_below="@id/webView1"
+        android:layout_marginTop="@dimen/d20"
+        android:adjustViewBounds="true"
+        android:src="@drawable/img_video_youtube"
+        android:visibility="visible" />
 
     <TextView
         android:id="@+id/tvTitleInfo"
@@ -22,10 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imgInfo"
         android:layout_marginTop="@dimen/d20"
-        android:gravity="bottom"
-        android:paddingBottom="@dimen/d20"
         android:ellipsize="end"
+        android:gravity="bottom"
         android:lines="2"
+        android:paddingBottom="@dimen/d20"
         android:paddingLeft="@dimen/d20"
         android:paddingRight="@dimen/d20"
         android:textColor="@color/colorBlack"

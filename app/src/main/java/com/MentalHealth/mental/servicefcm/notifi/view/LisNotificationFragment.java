@@ -18,6 +18,8 @@ import com.MentalHealth.mental.infonew.view.InfoNewDetailFragment;
 import com.MentalHealth.mental.monthinfo.view.DayDetailSlideFragment;
 import com.MentalHealth.mental.servicefcm.model.DBNotification;
 import com.MentalHealth.mental.servicefcm.model.NotificationModel;
+import com.MentalHealth.mental.servicefcm.notifi.model.DBCountNot;
+import com.MentalHealth.mental.servicefcm.notifi.model.NotModel;
 
 import java.util.ArrayList;
 
@@ -46,6 +48,9 @@ public class LisNotificationFragment extends BaseFragment implements Notificatio
     }
 
     private void initView() {
+
+        final DBCountNot dbcountnot = new DBCountNot(getContext());
+        dbcountnot.deleteAllUser();
         tvShowNotification = (TextView) findViewById(R.id.tvShowNotification);
         recyclerViewNotification = (RecyclerView) findViewById(R.id.recycler_notifi);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -71,16 +76,16 @@ public class LisNotificationFragment extends BaseFragment implements Notificatio
         args.putString("id", idNotification);
         switch (type) {
             case "0":
-                onMoveParentFragments(new InfoNewDetailFragment(),args);
+                onMoveParentFragments(new InfoNewDetailFragment(), args);
                 break;
             case "1":
-                onMoveParentFragments(new DayDetailSlideFragment(),args);
+                onMoveParentFragments(new DayDetailSlideFragment(), args);
                 break;
             case "2":
-                onMoveParentFragments(new ChatWithMonsterFragment(),args);
+                onMoveParentFragments(new ChatWithMonsterFragment(), args);
                 break;
             case "3":
-                onMoveParentFragments(new MiniGameAnswerFragment(),args);
+                onMoveParentFragments(new MiniGameAnswerFragment(), args);
                 break;
         }
     }

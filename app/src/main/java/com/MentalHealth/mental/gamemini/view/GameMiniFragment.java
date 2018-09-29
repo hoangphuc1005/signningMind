@@ -8,18 +8,10 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.MentalHealth.mental.R;
-import com.MentalHealth.mental.az.model.AZModel;
-import com.MentalHealth.mental.az.model.DataAZModel;
-import com.MentalHealth.mental.az.view.AZAdapter;
-import com.MentalHealth.mental.az.view.AZDetailFragment;
 import com.MentalHealth.mental.base.BaseFragment;
 import com.MentalHealth.mental.gamemini.model.LevelDataQuiz;
 import com.MentalHealth.mental.gamemini.model.LevelQuiz;
@@ -114,10 +106,11 @@ public class GameMiniFragment extends BaseFragment implements QuizLevelAdapter.O
     }
 
     @Override
-    public void setOnItemClick(int position) {
+    public void setOnItemClick(int position,int levelID) {
         Fragment fragment;
         Bundle bundle = new Bundle();
         bundle.putInt("quiz_cho", position);
+        bundle.putInt("quiz_level", levelID);
         fragment = new MiniGameAnswerFragment();
         onMoveParentFragments(fragment, bundle);
 

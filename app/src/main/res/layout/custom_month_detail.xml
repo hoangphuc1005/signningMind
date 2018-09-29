@@ -1,41 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rlBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="@dimen/d10"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/imgBackground"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:adjustViewBounds="true"
-            android:visibility="gone" />
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tvTitleMonth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_vertical"
+                android:text="dasda"
+                android:layout_marginTop="@dimen/d20"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/text20" />
+
+        </RelativeLayout>
+
+
+        <WebView
+            android:id="@+id/imgBackground"
+            android:layout_marginTop="@dimen/d20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            tools:ignore="WebViewLayout" />
 
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingBottom="@dimen/d20"
+            android:layout_marginTop="@dimen/d20"
             android:paddingLeft="@dimen/d20"
             android:paddingRight="@dimen/d20"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/text18"
             android:textStyle="bold"
             android:visibility="gone" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_centerInParent="true"
+                android:id="@+id/img_video_month"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="@dimen/d20"
+                android:src="@drawable/video_youtube"
+                android:visibility="gone" />
+        </RelativeLayout>
 
-        <ImageView
-            android:id="@+id/img_video_month"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/img_video_youtube"
-            android:visibility="gone" />
+
     </LinearLayout>
 
 

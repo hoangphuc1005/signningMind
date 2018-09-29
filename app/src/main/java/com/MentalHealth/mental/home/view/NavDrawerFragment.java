@@ -1,5 +1,6 @@
 package com.MentalHealth.mental.home.view;
 
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -21,6 +22,8 @@ import com.MentalHealth.mental.home.view.SlidingMenuAdapter;
 
 import java.util.ArrayList;
 
+import static com.MentalHealth.mental.home.view.FragmentHome.MY_PREFERENCE;
+
 
 public class NavDrawerFragment extends Fragment implements View.OnClickListener {
     private View mContainerView;
@@ -32,8 +35,11 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
     private TypedArray imgIcons;
     private String[] tvItems;
     private View layout;
+    private int count = 0;
     private FragmentDrawerListener mDrawerListener;
     private ActionBarDrawerToggle mDrawerToggle;
+    public static SharedPreferences sharedpreferences;
+
     private int pos = 0;
 
     @Override
@@ -44,6 +50,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
         return layout;
 
     }
+    
 
     public void init() {
         grMenu = (ListView) layout.findViewById(R.id.lvSdingMenu);
@@ -123,9 +130,9 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 boolean isSignOut = getString(R.string.txt_sign_out).equals(tvItems[position]);
-                if ( isSignOut==false) {
+                if (isSignOut == false) {
 
-                        mDrawerListener.onDrawerItemSelected(view, position);
+                    mDrawerListener.onDrawerItemSelected(view, position);
 
                     if (position < (tvItems.length - 1)) {
                         slidingMenuAdapter.setPosition(tvItems[position]);

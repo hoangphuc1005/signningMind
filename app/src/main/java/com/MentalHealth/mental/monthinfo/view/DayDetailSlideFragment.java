@@ -54,6 +54,7 @@ public class DayDetailSlideFragment extends BaseFragment
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView();
+        updateBackActionbar();
 
     }
 
@@ -91,7 +92,7 @@ public class DayDetailSlideFragment extends BaseFragment
                         mService.UpdateSateDays(userID, String.valueOf(dayDetail.getDayId())).enqueue(new Callback<LoginModel>() {
                             @Override
                             public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                                Log.e("===>successRespone", response.toString());
+                                Log.e("===>successRespone", response.message());
                             }
 
                             @Override

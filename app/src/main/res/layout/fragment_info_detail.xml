@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipe_refreshInfo"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -13,12 +14,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-
-            <ImageView
+            <WebView
                 android:id="@+id/imgInfoNewDetail"
-                android:adjustViewBounds="true"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:ignore="WebViewLayout"></WebView>
 
             <RelativeLayout
                 android:id="@+id/rlFavorite"
@@ -89,6 +89,8 @@
                 </RelativeLayout>
 
                 <TextView
+                    android:autoLink="all"
+                    android:textColorLink="@color/colorGlosbeLight"
                     android:id="@+id/tvTitleHeaderInfoNewDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -99,6 +101,8 @@
 
 
                 <TextView
+                    android:textColorLink="@color/colorGlosbeLight"
+                    android:autoLink="all"
                     android:id="@+id/tvLastContentInfoNewDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

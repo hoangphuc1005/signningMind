@@ -43,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        sharedpreferences = this.getSharedPreferences(MY_PREFERENCE,
+                Context.MODE_PRIVATE);
+        int count = sharedpreferences.getInt("Count", 0);
+        if (count > 0) {
+            count--;
+            SharedPreferences.Editor editor = sharedpreferences.edit();
+            editor.putInt("Count", count);
+            editor.apply();
+        }
 //        Fabric.with(this, new Crashlytics());
 //        Appsee.start(getString(R.string.com_appsee_apikey));
 
@@ -103,8 +112,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-        sharedpreferences = this.getSharedPreferences(MY_PREFERENCE,
-                Context.MODE_PRIVATE);
         final String userID = sharedpreferences.getString(USER_ID, "");
         if (!userID.isEmpty()) {
             if (!NotificationUtils.isAppIsInBackground(this)) {

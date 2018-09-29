@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
        android:layout_centerInParent="true"
         android:text="Chưa có thông báo nào"
-        android:textColor="@color/colorBlack"
-        android:textSize="@dimen/text30"
+        android:textColor="@color/colorGray"
+        android:textSize="@dimen/text20"
         android:visibility="gone" />
 </RelativeLayout>
