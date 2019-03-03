@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,7 @@ import com.MentalHealth.mental.home.login.model.LoginModel;
 import com.MentalHealth.mental.serverapi.ApiUtils;
 import com.MentalHealth.mental.serverapi.SOService;
 import com.MentalHealth.mental.servicefcm.NotificationUtils;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -30,7 +32,6 @@ import retrofit2.Response;
 
 public class LoginFragment extends BaseFragment {
     private EditText tvUserName;
-    private EditText tvUserPassWord;
     private Button btnLogin;
     public static final String MY_PREFERENCE = "Account";
     public static final String USERNAME = "userNameKey";
@@ -51,7 +52,7 @@ public class LoginFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         initView();
         actionView();
-        moveView();
+
     }
 
     private void moveView() {
@@ -65,8 +66,7 @@ public class LoginFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 try {
-                    checkUserPass(tvUserName.getText().toString().trim(),
-                            tvUserPassWord.getText().toString().trim());
+                    checkUserPass(tvUserName.getText().toString().trim());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -78,42 +78,39 @@ public class LoginFragment extends BaseFragment {
 
     @SuppressLint("HardwareIds")
     private void initView() {
+        moveView();
         tvUserName = (EditText) findViewById(R.id.tvAccount);
-        tvUserPassWord = (EditText) findViewById(R.id.tvPassWord);
         btnLogin = (Button) findViewById(R.id.btnLogin);
         mService = ApiUtils.getSOService();
-        androidID = Settings.Secure.getString(getContext().getContentResolver(),
-                Settings.Secure.ANDROID_ID);
+        androidID = FirebaseInstanceId.getInstance().getToken();
     }
 
-    private void checkUserPass(String userName, String passWord) {
-        if (userName.isEmpty() && passWord.isEmpty()) {
+    private void checkUserPass(String userName) {
+        if (userName.isEmpty()) {
             showErrorText("Bạn chưa nhập email và mật khẩu, bạn hãy nhập email và mật khẩu để có thể trải nghiệm App một cách tốt nhất");
         } else if (userName.isEmpty()) {
             showErrorText("Bạn chưa nhập email, bạn hãy nhập email để có thể trải nghiệm App một cách tốt nhất");
-        } else if (passWord.isEmpty()) {
-            showErrorText("Bạn chưa nhập mật khẩu, bạn hãy nhập mật khẩu để có thể trải nghiệm App một cách tốt nhất");
         }
-        if (!userName.isEmpty() && !passWord.isEmpty()) {
-            checkLogin(userName, passWord, androidID);
+        if (!userName.isEmpty() ) {
+            checkLogin(userName, androidID);
         }
 
     }
 
-    private void checkLogin(final String userName, final String passWord, String deviceID) {
+    private void checkLogin(final String userName, String deviceID) {
         final ProgressDialog progressDoalog;
         progressDoalog = new ProgressDialog(getContext());
         progressDoalog.setMessage("Xin bạn chờ trong giây lát...");
         progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         // show it
         progressDoalog.show();
-        mService.loginApp(userName, passWord, deviceID).enqueue(new Callback<LoginModel>() {
+        mService.loginApp(userName, deviceID).enqueue(new Callback<LoginModel>() {
             @Override
             public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
                 if (response != null) {
                     if (response.raw().isSuccessful()) {
                         progressDoalog.dismiss();
-                        savedAccount(userName, passWord, response.body().getUserId().toString());
+                        savedAccount(userName, response.body().getUserId().toString());
                         nextView();
                     } else {
                         progressDoalog.dismiss();
@@ -150,10 +147,9 @@ public class LoginFragment extends BaseFragment {
                 }).show();
     }
 
-    private void savedAccount(String userName, String passWord, String userID) {
+    private void savedAccount(String userName, String userID) {
         SharedPreferences.Editor editor = sharedpreferences.edit();
         editor.putString(USERNAME, userName.trim());
-        editor.putString(PASSWORD, passWord.trim());
         editor.putString(USER_ID, userID.trim());
         editor.apply();
     }

@@ -8,20 +8,6 @@
     android:padding="@dimen/d20">
 
     <ImageView
-        android:id="@+id/imgChatWithMonster"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/d20"
-        android:layout_marginTop="@dimen/d20"
-        android:src="@drawable/img_chat" />
-
-    <ImageView
-        android:id="@+id/imgChart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/img_chart" />
-
-    <ImageView
         android:id="@+id/imgDiary"
         android:layout_marginTop="@dimen/d20"
         android:layout_width="wrap_content"

@@ -113,11 +113,14 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
 
 
     public void onMoveFragmentMain(Fragment fragment, final Bundle bundle) {
-        fragment.setArguments(bundle);
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.content_view, fragment);
-        transaction.commit();
+        if(fragment!=null){
+            fragment.setArguments(bundle);
+            FragmentManager fragmentManager = getFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.content_view, fragment);
+            transaction.commit();
+        }
+
     }
 
     public void onMoveFragmentSearch(Fragment fragment, final Bundle bundle) {
@@ -311,8 +314,8 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
     }
 
     public void callSOS() {
-        ImageView imgSOS = (ImageView) getActivity().findViewById(R.id.imgSOS);
-        imgSOS.setOnClickListener(new View.OnClickListener() {
+        ImageView imgSos = (ImageView) getActivity().findViewById(R.id.imgSOS);
+        imgSos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
@@ -355,7 +358,7 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
     }
 
     public void comeBackHomeScreen() {
-        ImageView imgHome = (ImageView) getActivity().findViewById(R.id.imgHome);
+
         imgHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -9,18 +9,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
+import com.MentalHealth.mental.az.view.AZFragment;
 import com.MentalHealth.mental.constant.Constants;
 import com.MentalHealth.mental.diary.view.ChatWithMonsterFragment;
 import com.MentalHealth.mental.gamemini.view.MiniGameAnswerFragment;
 import com.MentalHealth.mental.home.login.model.LoginModel;
 import com.MentalHealth.mental.home.view.MainFragment;
 import com.MentalHealth.mental.infonew.view.InfoNewDetailFragment;
+import com.MentalHealth.mental.library.view.VideoDiaryFragment;
 import com.MentalHealth.mental.monthinfo.view.DayDetailSlideFragment;
 import com.MentalHealth.mental.serverapi.ApiUtils;
 import com.MentalHealth.mental.serverapi.SOService;
 import com.MentalHealth.mental.servicefcm.NotificationUtils;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+import me.leolin.shortcutbadger.ShortcutBadger;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,12 +48,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         sharedpreferences = this.getSharedPreferences(MY_PREFERENCE,
                 Context.MODE_PRIVATE);
-        int count = sharedpreferences.getInt("Count", 0);
+        int count = sharedpreferences.getInt("countNumber", 0);
         if (count > 0) {
             count--;
-            SharedPreferences.Editor editor = sharedpreferences.edit();
-            editor.putInt("Count", count);
-            editor.apply();
+            ShortcutBadger.applyCount(this, count);
         }
 //        Fabric.with(this, new Crashlytics());
 //        Appsee.start(getString(R.string.com_appsee_apikey));
@@ -74,6 +75,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case "3":
                         moveFragment(new MiniGameAnswerFragment());
+                        break;
+                    case "4":
+                        moveFragment(new AZFragment());
+                        break;
+                    case "5":
+                        moveFragment(new VideoDiaryFragment());
                         break;
 
                 }
@@ -114,62 +121,16 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         final String userID = sharedpreferences.getString(USER_ID, "");
         if (!userID.isEmpty()) {
-            if (!NotificationUtils.isAppIsInBackground(this)) {
-                mService.loginTime(userID, "1").enqueue(new Callback<LoginModel>() {
-                    @Override
-                    public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                        Log.e("response", response.raw().message());
-                        if (response.raw().code() == 400) {
-                            mService.loginTime(userID, "0").enqueue(new Callback<LoginModel>() {
-                                @Override
-                                public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                                    if (response.raw().code() == 200) {
-                                        mService.loginTime(userID, "1");
-                                    }
-                                }
+            mService.loginTime(userID, "0").enqueue(new Callback<LoginModel>() {
+                @Override
+                public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
+                }
 
-                                @Override
-                                public void onFailure(Call<LoginModel> call, Throwable t) {
+                @Override
+                public void onFailure(Call<LoginModel> call, Throwable t) {
 
-                                }
-                            });
-                        }
-
-                    }
-
-                    @Override
-                    public void onFailure(Call<LoginModel> call, Throwable t) {
-
-                    }
-                });
-            } else {
-                mService.loginTime(userID, "0").enqueue(new Callback<LoginModel>() {
-                    @Override
-                    public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                        Log.e("response", response.raw().message());
-                        if (response.raw().code() == 400) {
-                            mService.loginTime(userID, "1").enqueue(new Callback<LoginModel>() {
-                                @Override
-                                public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                                    if (response.raw().code() == 200) {
-                                        mService.loginTime(userID, "0");
-                                    }
-                                }
-
-                                @Override
-                                public void onFailure(Call<LoginModel> call, Throwable t) {
-
-                                }
-                            });
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<LoginModel> call, Throwable t) {
-
-                    }
-                });
-            }
+                }
+            });
         }
 
 
@@ -182,59 +143,16 @@ public class MainActivity extends AppCompatActivity {
                 Context.MODE_PRIVATE);
         final String userID = sharedpreferences.getString(USER_ID, "");
         if (!userID.isEmpty()) {
-            if (!NotificationUtils.isAppIsInBackground(this)) {
-                mService.loginTime(userID, "1").enqueue(new Callback<LoginModel>() {
-                    @Override
-                    public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                        Log.e("response", response.raw().message());
-                        if (response.raw().code() == 400) {
-                            mService.loginTime(userID, "0").enqueue(new Callback<LoginModel>() {
-                                @Override
-                                public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                                    if (response.raw().code() == 200)
-                                        mService.loginTime(userID, "1");
-                                }
+            mService.loginTime(userID, "1").enqueue(new Callback<LoginModel>() {
+                @Override
+                public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
+                }
 
-                                @Override
-                                public void onFailure(Call<LoginModel> call, Throwable t) {
+                @Override
+                public void onFailure(Call<LoginModel> call, Throwable t) {
 
-                                }
-                            });
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<LoginModel> call, Throwable t) {
-
-                    }
-                });
-            } else {
-                mService.loginTime(userID, "0").enqueue(new Callback<LoginModel>() {
-                    @Override
-                    public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                        Log.e("response", response.raw().message());
-                        if (response.raw().code() == 400) {
-                            mService.loginTime(userID, "1").enqueue(new Callback<LoginModel>() {
-                                @Override
-                                public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                                    if (response.raw().code() == 200)
-                                        mService.loginTime(userID, "0");
-                                }
-
-                                @Override
-                                public void onFailure(Call<LoginModel> call, Throwable t) {
-
-                                }
-                            });
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<LoginModel> call, Throwable t) {
-
-                    }
-                });
-            }
+                }
+            });
         }
     }
 }

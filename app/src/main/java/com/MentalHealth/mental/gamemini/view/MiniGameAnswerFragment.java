@@ -1,5 +1,6 @@
 package com.MentalHealth.mental.gamemini.view;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.MentalHealth.mental.R;
@@ -31,6 +33,7 @@ public class MiniGameAnswerFragment extends BaseFragment implements View.OnClick
     private ArrayList<AnswerModel> listInfoNew;
     private ImageView btnBackAnswer, btnNextAnswer;
     private SOService mService;
+    private LinearLayout lnAnswerQuiz;
     private TextView tvTitleAnswer, tvLevel;
     private RecyclerView recyclerInfo;
     private String aboutAnswer;
@@ -63,6 +66,7 @@ public class MiniGameAnswerFragment extends BaseFragment implements View.OnClick
         listInfoNew = new ArrayList<>();
         tvTitleAnswer = (TextView) findViewById(R.id.tvTitleAnswer);
         tvLevel = (TextView) findViewById(R.id.tvLevel);
+        lnAnswerQuiz = (LinearLayout) findViewById(R.id.lnAnswerQuiz);
         mService = ApiUtils.getSOService();
         sharedpreferences = getContext().getSharedPreferences(MY_PREFERENCE,
                 Context.MODE_PRIVATE);
@@ -85,8 +89,18 @@ public class MiniGameAnswerFragment extends BaseFragment implements View.OnClick
         btnBackAnswer.setOnClickListener(this);
         addDataInfo();
     }
-
     private void addDataInfo() {
+        final ProgressDialog progressDoalog;
+        progressDoalog = new ProgressDialog(getContext());
+        progressDoalog.setMessage("Xin đợi trong giây lát....");
+        progressDoalog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        // show it
+        progressDoalog.show();
+        getDataInfo(progressDoalog);
+
+    }
+
+    private void getDataInfo(final ProgressDialog progressDialog) {
         sharedpreferences = getContext().getSharedPreferences(MY_PREFERENCE,
                 Context.MODE_PRIVATE);
         question = sharedpreferences.getInt(CURRENT_COUNT, 0);
@@ -95,6 +109,8 @@ public class MiniGameAnswerFragment extends BaseFragment implements View.OnClick
             public void onResponse(Call<QuizModelDetail> call, Response<QuizModelDetail> response) {
                 if (response.isSuccessful()) {
                     size = response.body().getData().size();
+                    progressDialog.dismiss();
+                    lnAnswerQuiz.setVisibility(View.VISIBLE);
                     if (question < size) {
                         tvTitleAnswer.setText(response.body().getData().get(question).getContent());
                         tvLevel.setText("LEVEL" + " " + sharedpreferences.getInt("test",0));

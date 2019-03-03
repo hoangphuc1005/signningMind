@@ -37,6 +37,7 @@ import com.MentalHealth.mental.serverapi.SOService;
 import java.util.ArrayList;
 import java.util.Random;
 
+import me.leolin.shortcutbadger.ShortcutBadger;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

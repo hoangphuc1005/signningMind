@@ -43,6 +43,8 @@ public class AddNoteDiaryFragment extends BaseFragment {
                     diaryModel.setContentOfDiary(tvContentDiary.getText().toString());
                     diaryModel.setDateOfDiary(Utils.getCurrentDay());
                     diaryModel.setMonthOfDiary(Utils.getTime());
+                    diaryModel.setMonthOfYear(Utils.getMonth());
+                    diaryModel.setYearOfDiary(Utils.getYear());
                     if (dbHistory.getDiary(diaryModel.getTitleOfDiary()) == null)
                         dbHistory.addDiary(diaryModel);
                     else

@@ -13,23 +13,30 @@ import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.base.BaseFragment;
 import com.MentalHealth.mental.infonew.model.Data;
 import com.MentalHealth.mental.infonew.model.InfoNew;
-import com.MentalHealth.mental.infonew.model.InfoNewModel;
 import com.MentalHealth.mental.serverapi.ApiUtils;
 import com.MentalHealth.mental.serverapi.SOService;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class InfoNewFragment extends BaseFragment implements InfoNewAdapter.OnClickRecycleView,
+public class InfoNewFragment extends BaseFragment implements
         SwipeRefreshLayout.OnRefreshListener {
     private ArrayList<Data> listInfoNew;
     private SOService mService;
     private InfoNewAdapter infoAdapter;
     private SwipeRefreshLayout swipeRefreshInfo;
+    private String page;
+    private LinearLayoutManager layoutManager;
+    private int visibleItemCount;
+    private int totalItemCount;
+    private int mCountpage = 1;
+    private String[] countPage;
+    private int tmpTotalPage = 0;
+    private int firstVisibleItems;
+    private RecyclerView recyclerInfo;
 
     @Override
     public int getLayoutId() {
@@ -52,21 +59,15 @@ public class InfoNewFragment extends BaseFragment implements InfoNewAdapter.OnCl
 
     private void init() {
         mService = ApiUtils.getSOService();
+        layoutManager = new LinearLayoutManager(getActivity());
         swipeRefreshInfo = (SwipeRefreshLayout) findViewById(R.id.swipe_refreshInfo);
         swipeRefreshInfo.setOnRefreshListener(this);
-        RecyclerView recyclerInfo = (RecyclerView) findViewById(R.id.recycler_info);
+        recyclerInfo = (RecyclerView) findViewById(R.id.recycler_info);
         listInfoNew = new ArrayList<>();
         final DBInformNew dbInformNew = new DBInformNew(getContext());
-//        if (dbInformNew.getAllUsers() != null) {
-//            listInfoNew = (ArrayList<Data>) dbInformNew.getAllUsers();
-//        } else {
-//            addDataInfo();
-//        }
         addDataInfo();
-        infoAdapter = new InfoNewAdapter(getContext(), listInfoNew, this);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
-        recyclerInfo.setLayoutManager(mLayoutManager);
-        recyclerInfo.setAdapter(infoAdapter);
+        nextPage();
+
     }
 
 
@@ -86,7 +87,14 @@ public class InfoNewFragment extends BaseFragment implements InfoNewAdapter.OnCl
             @Override
             public void onResponse(Call<InfoNew> call, Response<InfoNew> response) {
                 if (response != null) {
-                    infoAdapter.updateAnswers(response.body().getData());
+                    listInfoNew = (ArrayList<Data>) response.body().getData();
+                    infoAdapter = new InfoNewAdapter(getContext(), listInfoNew, itemClick);
+                    recyclerInfo.setLayoutManager(layoutManager);
+                    recyclerInfo.setAdapter(infoAdapter);
+                    if (response.body().getNextPageUrl() != null) {
+                        page = response.body().getNextPageUrl();
+
+                    }
                     progressDialog.dismiss();
                 }
             }
@@ -98,15 +106,57 @@ public class InfoNewFragment extends BaseFragment implements InfoNewAdapter.OnCl
         });
     }
 
-    @Override
-    public void setOnItemClick(Data position) {
-        Fragment fragment;
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("InfoNew", position);
-        fragment = new InfoNewDetailFragment();
-        onMoveParentFragments(fragment, bundle);
+    private void nextPage() {
+        recyclerInfo.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+            }
 
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                visibleItemCount = layoutManager.getChildCount();
+                totalItemCount = layoutManager.getItemCount();
+                if (page!=null){
+                    countPage=page.split("=");
+                    firstVisibleItems = layoutManager.findFirstVisibleItemPosition();
+                    if ((firstVisibleItems + visibleItemCount) >= totalItemCount &&
+                            tmpTotalPage != totalItemCount) {
+                        if (firstVisibleItems + visibleItemCount == totalItemCount && totalItemCount != 0 &&
+                                mCountpage < Integer.parseInt(countPage[1]))
+                            mCountpage = Integer.parseInt(countPage[1]);
+                        mService.getInfoNewPage(String.valueOf(mCountpage)).enqueue(new Callback<InfoNew>() {
+                            @Override
+                            public void onResponse(Call<InfoNew> call, Response<InfoNew> response) {
+                                listInfoNew.addAll(response.body().getData());
+                                infoAdapter.updateAnswers(listInfoNew);
+                            }
+
+                            @Override
+                            public void onFailure(Call<InfoNew> call, Throwable t) {
+
+                            }
+                        });
+                        mCountpage++;
+                    }
+                }
+
+
+            }
+        });
     }
+
+    InfoNewAdapter.OnClickRecycleView itemClick = new InfoNewAdapter.OnClickRecycleView() {
+        @Override
+        public void setOnItemClick(Data position) {
+            Fragment fragment;
+            Bundle bundle = new Bundle();
+            bundle.putSerializable("InfoNew", position);
+            fragment = new InfoNewDetailFragment();
+            onMoveParentFragments(fragment, bundle);
+
+        }
+    };
 
     @Override
     public void onRefresh() {

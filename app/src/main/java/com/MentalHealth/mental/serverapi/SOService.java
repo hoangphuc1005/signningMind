@@ -7,6 +7,7 @@ import com.MentalHealth.mental.gamemini.model.LevelQuiz;
 import com.MentalHealth.mental.gamemini.model.QuizModelDetail;
 import com.MentalHealth.mental.home.login.model.LoginModel;
 import com.MentalHealth.mental.infonew.model.InfoNew;
+import com.MentalHealth.mental.infonew.model.IntroductModel;
 import com.MentalHealth.mental.library.model.DoccumentDetail;
 import com.MentalHealth.mental.library.model.DoccumentModel;
 import com.MentalHealth.mental.library.model.VideoModel;
@@ -20,6 +21,7 @@ import com.MentalHealth.mental.sos.model.SOSModelDetail;
 
 import java.util.List;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -33,7 +35,6 @@ public interface SOService {
     @POST("login")
     Call<LoginModel> loginApp(
             @Field("account") String account,
-            @Field("password") String password,
             @Field("device_id") String device_id);
 
     @GET("news/{id}")
@@ -42,6 +43,8 @@ public interface SOService {
     @GET("news")
     Call<InfoNew> getInfoNew();
 
+    @GET("news")
+    Call<InfoNew> getInfoNewPage(@Query("page")String page);
     @FormUrlEncoded
     @POST("logtime")
     Call<LoginModel> loginTime(
@@ -53,6 +56,9 @@ public interface SOService {
 
     @GET("documents")
     Call<DoccumentModel> getAllDocument();
+
+    @GET("pdf/{id}")
+    Call<ResponseBody> getDownloadDocument(@Path("id") String id);
 
     @GET("documents/{id}")
     Call<DoccumentDetail> getDocumentDetail(@Path("id") String id);
@@ -87,5 +93,6 @@ public interface SOService {
     @GET("questions/{id}")
     Call<QuizModelDetail> getQuizInfo(@Path("id") String id);
     //http://mucilaginous-commit.000webhostapp.com/api/search/{key_word}
-
+    @GET("info")
+    Call<IntroductModel> getIntroduct();
 }

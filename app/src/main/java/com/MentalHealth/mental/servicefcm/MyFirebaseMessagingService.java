@@ -30,6 +30,8 @@ import com.google.firebase.messaging.RemoteMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import me.leolin.shortcutbadger.ShortcutBadger;
+
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     private static final String TAG = MyFirebaseMessagingService.class.getSimpleName();
@@ -83,8 +85,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             notificationModel.setType(type);
             notificationModel.setId(id);
             notificationModel.setTitle(title);
-
             if (!NotificationUtils.isAppIsInBackground(getApplicationContext())) {
+                notificationCount++;
+                sharedpreferences.edit().putInt("countNumber", notificationCount).apply();
+                ShortcutBadger.applyCount(getApplicationContext(), notificationCount);
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(getApplicationContext())
                                 .setSmallIcon(R.drawable.icon_app)
@@ -109,6 +113,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 manager.notify(0, builder.build());
 
             } else {
+                notificationCount++;
+                sharedpreferences.edit().putInt("countNumber", notificationCount).apply();
+                ShortcutBadger.applyCount(getApplicationContext(), notificationCount);
                 NotificationCompat.Builder builder =
                         new NotificationCompat.Builder(getApplicationContext())
                                 .setSmallIcon(R.drawable.icon_app)

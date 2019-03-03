@@ -28,7 +28,7 @@ import retrofit2.Response;
 
 public class GameMiniFragment extends BaseFragment implements QuizLevelAdapter.OnClickRecycleView,
         SwipeRefreshLayout.OnRefreshListener {
-    private RelativeLayout rlLevelFirst;
+    private RelativeLayout bgMainQuiz;
     private ImageView imgBack;
     private ArrayList<LevelDataQuiz> listInfoNew;
     private SOService mService;
@@ -59,6 +59,7 @@ public class GameMiniFragment extends BaseFragment implements QuizLevelAdapter.O
         RecyclerView recyclerInfo = (RecyclerView) findViewById(R.id.recycler_info);
         listInfoNew = new ArrayList<>();
         imgBack = (ImageView) findViewById(R.id.imgBack);
+        bgMainQuiz = (RelativeLayout) findViewById(R.id.bgMainQuiz);
         addDataInfo();
         infoAdapter = new QuizLevelAdapter(getContext(), listInfoNew, this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
@@ -93,6 +94,7 @@ public class GameMiniFragment extends BaseFragment implements QuizLevelAdapter.O
             @Override
             public void onResponse(Call<LevelQuiz> call, Response<LevelQuiz> response) {
                 if (response != null) {
+                    bgMainQuiz.setVisibility(View.VISIBLE);
                     infoAdapter.updateAnswers(response.body().getData());
                     progressDialog.dismiss();
                 }

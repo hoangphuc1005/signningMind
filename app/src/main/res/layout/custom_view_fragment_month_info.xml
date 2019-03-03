@@ -20,7 +20,6 @@
             android:layout_alignParentLeft="true"
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/d80"
-            android:text="adadada"
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/text18" />
     </RelativeLayout>

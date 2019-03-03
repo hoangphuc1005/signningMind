@@ -2,6 +2,7 @@ package com.MentalHealth.mental.library.view;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +33,7 @@ public class DoccumentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate
-                (R.layout.custom_view_fragment_infonew, parent, false);
+                (R.layout.custom_fragment_doccument, parent, false);
         return new DoccumentAdapter.ItemViewHolder(itemView);
     }
 
@@ -40,20 +41,11 @@ public class DoccumentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         DoccumentAdapter.ItemViewHolder itemViewHolder = (DoccumentAdapter.ItemViewHolder) holder;
         final DataDoccumentModel infoNewModel = items.get(position);
-
-        int i = infoNewModel.getId();
-        switch (i) {
-            case 5:
-                itemViewHolder.imgIcons.setImageResource(R.drawable.img_sinhvien);
-                break;
-            case 6:
-                itemViewHolder.imgIcons.setImageResource(R.drawable.img_loaulantoa);
-                break;
-            case 7:
-                itemViewHolder.imgIcons.setImageResource(R.drawable.img_doipho);
-                break;
-
-        }
+        itemViewHolder.tvTitle.setText(infoNewModel.getTitle());
+        Picasso.with(context)
+                .load(Constant.URL_IMAGE + infoNewModel.getImage())
+//                .fit().centerInside()
+                .into(itemViewHolder.imgIcons);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,10 +70,8 @@ public class DoccumentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         public ItemViewHolder(View itemView) {
             super(itemView);
-            imgIcons = (ImageView) itemView.findViewById(R.id.imgInfo);
-            tvTitle = (TextView) itemView.findViewById(R.id.tvTitleInfo);
-            tvTitle.setVisibility(View.GONE);
-
+            imgIcons = (ImageView) itemView.findViewById(R.id.img_document);
+            tvTitle = (TextView) itemView.findViewById(R.id.tvTitleDocument);
 
         }
     }

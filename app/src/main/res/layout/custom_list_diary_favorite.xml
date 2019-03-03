@@ -3,6 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:layout_marginLeft="@dimen/d20"
+    android:id="@+id/rlNote"
+    android:visibility="visible"
     android:layout_marginRight="@dimen/d20"
     android:layout_marginTop="@dimen/d20"
     android:background="@drawable/bg_date_diary">
@@ -39,6 +41,7 @@
 
     <View
         android:layout_width="1dp"
+        android:id="@+id/viewLineNote"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_marginBottom="@dimen/d10"
@@ -52,9 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:layout_marginLeft="@dimen/d20"
-        android:layout_marginRight="@dimen/d50"
-        android:layout_toRightOf="@id/lnDateOfMonthDiary"
+        android:layout_marginLeft="@dimen/d50"
         android:lines="2"
         android:text="mot ngay nao do "
         android:textColor="@color/colorDiaryText"

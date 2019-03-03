@@ -39,6 +39,7 @@ dependencies {
     compile 'com.android.support:support-compat:25.3.1'
     compile 'com.android.support:support-core-ui:25.3.1'
     compile 'com.romandanylyk:pageindicatorview:1.0.1@aar'
+    compile "me.leolin:ShortcutBadger:1.1.22@aar"
     apply plugin: 'com.google.gms.google-services'
 }
 

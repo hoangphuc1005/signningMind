@@ -17,6 +17,10 @@ public class DataAZModel {
     @Expose
     private String updatedAt;
 
+    @SerializedName("image")
+    @Expose
+    private String image;
+
     public Integer getId() {
         return id;
     }
@@ -47,5 +51,13 @@ public class DataAZModel {
 
     public void setUpdatedAt(String updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

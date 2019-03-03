@@ -49,7 +49,7 @@ public class InfoNewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         return new ItemViewHolder(itemView);
     }
 
-    @SuppressLint("SetJavaScriptEnabled")
+    @SuppressLint({"SetJavaScriptEnabled", "ClickableViewAccessibility"})
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ItemViewHolder itemViewHolder = (ItemViewHolder) holder;

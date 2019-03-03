@@ -62,30 +62,6 @@
                     android:hint="User Name" />
             </RelativeLayout>
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/d20"
-                android:layout_weight="0.02"
-                android:background="@drawable/bg_login">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerInParent="true"
-                    android:layout_marginLeft="@dimen/d20"
-                    android:src="@drawable/ic_pass" />
-
-                <EditText
-                    android:id="@+id/tvPassWord"
-                    android:inputType="textPassword"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:hint="Pass Word" />
-            </RelativeLayout>
-
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="120dp"

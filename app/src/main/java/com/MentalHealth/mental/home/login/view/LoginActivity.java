@@ -23,7 +23,6 @@ public class LoginActivity extends AppCompatActivity {
     public static final String MY_PREFERENCE = "Account";
     public static final String USERNAME = "userNameKey";
     SharedPreferences sharedpreferences;
-    public static final String PASSWORD = "passWordKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         if (sharedpreferences.contains(USERNAME)) {
             if (!sharedpreferences.getString(USERNAME, "").isEmpty()) {
                 String userName = sharedpreferences.getString(USERNAME, "");
-                String passWord = sharedpreferences.getString(PASSWORD, "");
-                if (!userName.equals("") && !passWord.equals("")) {
+                if (!userName.equals("")) {
                     Intent intent = new Intent(this, MainActivity.class);
                     startActivity(intent);
                     finish();

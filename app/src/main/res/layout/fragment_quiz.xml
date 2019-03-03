@@ -2,6 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/bgMainQuiz"
+    android:visibility="invisible"
     android:background="@drawable/img_bggame"
     android:paddingLeft="@dimen/d30"
     android:paddingRight="@dimen/d30"

@@ -7,7 +7,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.Html;
 import android.text.SpannableString;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.MentalHealth.mental.R;
@@ -27,10 +29,11 @@ public class SOSDetailFragment extends BaseFragment implements SwipeRefreshLayou
     private TextView tvTitle;
     private TextView tvHeaderContent;
     private TextView tvLastContent;
+    private LinearLayout lnInfoNewDetail;
     private int position;
     Bundle bundle;
     private SOService mService;
-    private ImageView imageContent, imgInfoNewDetail;
+    private WebView imgInfoNewDetail;
     private SwipeRefreshLayout swipeRefreshInfo;
 
     @Override
@@ -54,7 +57,8 @@ public class SOSDetailFragment extends BaseFragment implements SwipeRefreshLayou
         tvTitle = (TextView) findViewById(R.id.tvTitleInfoNewDetail);
         tvHeaderContent = (TextView) findViewById(R.id.tvTitleHeaderInfoNewDetail);
         tvLastContent = (TextView) findViewById(R.id.tvLastContentInfoNewDetail);
-        imgInfoNewDetail = (ImageView) findViewById(R.id.imgInfoNewDetail);
+        imgInfoNewDetail = (WebView) findViewById(R.id.imgInfoNewDetail);
+        lnInfoNewDetail = (LinearLayout) findViewById(R.id.lnInfoNewDetail);
 
         addDataInfo();
     }
@@ -79,15 +83,13 @@ public class SOSDetailFragment extends BaseFragment implements SwipeRefreshLayou
             public void onResponse(Call<SOSModelDetail> call, Response<SOSModelDetail> response) {
                 if (response != null) {
                     progressDialog.dismiss();
+                    lnInfoNewDetail.setVisibility(View.VISIBLE);
                     SpannableString noidungspanned = new SpannableString(Html.fromHtml(response.body().getContent()));
                     SpannableString noidungspanned1 = new SpannableString(Html.fromHtml(response.body().getDescription()));
                     seTTextContent(response.body().getTitle(), noidungspanned1,
                             noidungspanned);
-                    Picasso.with(getContext())
-                            .load(Constant.URL_IMAGE + response.body().getImage())
-                            .placeholder(R.drawable.test_info)
-                            .fit().centerCrop()
-                            .into(imgInfoNewDetail);
+                    imgInfoNewDetail.getSettings().setJavaScriptEnabled(true);
+                    imgInfoNewDetail.loadUrl(Constant.URL_IMAGE + response.body().getImage());
                 }
             }
 

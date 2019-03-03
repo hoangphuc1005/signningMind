@@ -2,6 +2,7 @@ package com.MentalHealth.mental.library.view;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +48,14 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 clickRecycleView.setOnItemClick(infoNewModel.getUrl());
             }
         });
+        String[] subS=infoNewModel.getUrl().split("=");
+        String ID=subS[1];
+        String t=subS[0];
+        String[] video =t.split("watch");
+        String subVideo= video[0].replace("www","img");
+        Picasso.with(context)
+                .load(subVideo+"vi/"+ID +"/0.jpg")
+                .into(itemViewHolder.imgIcons);
 
     }
 

@@ -22,7 +22,7 @@ public class LibraryFragment extends BaseFragment implements View.OnClickListene
         super.onViewCreated(view, savedInstanceState);
         initView();
         actionView();
-        setTitleActionBar("Thư viện");
+        setTitleActionBar("Thư viện"     );
         updateBackActionbarCustomBack();
         comeBackHomeScreen();
         handleBackPress();

@@ -10,9 +10,11 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:id="@+id/lnInfoNewDetail"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="visible">
 
             <WebView
                 android:id="@+id/imgInfoNewDetail"
@@ -44,6 +46,27 @@
                     android:layout_marginTop="@dimen/d10"
                     android:src="@drawable/ic_share" />
             </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <TextView
+                    android:id="@+id/tvCreateAt"
+                    android:layout_marginLeft="@dimen/d20"
+                    android:layout_marginRight="@dimen/d20"
+                    android:layout_marginTop="@dimen/d20"
+                    android:layout_width="wrap_content"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerInParent="true"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/text18" />
+            </RelativeLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,25 +112,25 @@
                 </RelativeLayout>
 
                 <TextView
-                    android:autoLink="all"
-                    android:textColorLink="@color/colorGlosbeLight"
                     android:id="@+id/tvTitleHeaderInfoNewDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d10"
+                    android:autoLink="all"
                     android:text="demo"
                     android:textColor="@color/colorBlack"
+                    android:textColorLink="@color/colorGlosbeLight"
                     android:textStyle="bold" />
 
 
                 <TextView
-                    android:textColorLink="@color/colorGlosbeLight"
-                    android:autoLink="all"
                     android:id="@+id/tvLastContentInfoNewDetail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/d10"
-                    android:textColor="@color/colorBlack" />
+                    android:autoLink="all"
+                    android:textColor="@color/colorBlack"
+                    android:textColorLink="@color/colorGlosbeLight" />
             </LinearLayout>
 
         </LinearLayout>

@@ -1,6 +1,9 @@
 package com.MentalHealth.mental.diary.model;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
+import java.util.Comparator;
 
 
 public class DiaryModel implements Serializable {
@@ -15,6 +18,25 @@ public class DiaryModel implements Serializable {
     }
 
     private String dateOfDiary;
+    private String yearOfDiary;
+    private String monthOfYear;
+
+    public String getMonthOfYear() {
+        return monthOfYear;
+    }
+
+    public void setMonthOfYear(String monthOfYear) {
+        this.monthOfYear = monthOfYear;
+    }
+
+    public String getYearOfDiary() {
+        return yearOfDiary;
+    }
+
+    public void setYearOfDiary(String yearOfDiary) {
+        this.yearOfDiary = yearOfDiary;
+    }
+
     private String monthOfDiary;
     private String titleOfDiary;
 
@@ -51,4 +73,6 @@ public class DiaryModel implements Serializable {
     public void setContentOfDiary(String contentOfDiary) {
         this.contentOfDiary = contentOfDiary;
     }
+
+
 }
