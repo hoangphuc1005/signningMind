@@ -19,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.MentalHealth.mental.R;
-import com.MentalHealth.mental.home.view.FragmentBottomNav;
 import com.MentalHealth.mental.home.view.FragmentHome;
 import com.MentalHealth.mental.home.view.SearchInfoFragment;
 import com.MentalHealth.mental.sos.view.SosFragment;
@@ -113,7 +112,7 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
 
 
     public void onMoveFragmentMain(Fragment fragment, final Bundle bundle) {
-        if(fragment!=null){
+        if (fragment != null) {
             fragment.setArguments(bundle);
             FragmentManager fragmentManager = getFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();
@@ -143,8 +142,6 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
         fragment.setArguments(bundle);
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-//
-        //   transaction.addToBackStack(fragment_home);
         transaction.replace(R.id.frame_layout, fragment);
         transaction.commit();
     }
@@ -226,7 +223,6 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
                             Fragment fragment = new FragmentHome();
                             onMoveFragmentMain(fragment, getArguments());
                         }
-//                        NotifyService.notifyUpdateMenuLeft(getActivity(), getString(R.string.txt_home), 0);
                     }
                     return true;
                 }
@@ -262,7 +258,6 @@ public abstract class BaseFragment extends Fragment implements ViewTreeObserver.
                                 toolbar.setTitle(R.string.txt_home);
                             }
                         }
-//                        NotifyService.notifyUpdateMenuLeft(getActivity(), getString(R.string.txt_home), 0);
                     }
                     return true;
                 }

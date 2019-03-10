@@ -46,7 +46,6 @@ public class SOSDetailFragment extends BaseFragment implements SwipeRefreshLayou
         super.onViewCreated(view, savedInstanceState);
         updateBackActionbar();
         initView();
-//        handleBackPressMain();
     }
 
     private void initView() {

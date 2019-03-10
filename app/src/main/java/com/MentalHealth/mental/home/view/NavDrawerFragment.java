@@ -50,7 +50,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener 
         return layout;
 
     }
-    
+
 
     public void init() {
         grMenu = (ListView) layout.findViewById(R.id.lvSdingMenu);

@@ -28,13 +28,11 @@ public class MainFragment extends BaseFragment implements NavDrawerFragment.Frag
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
     public static final String USER_ID = "userID";
-    private int mDefault_tab = 0;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initActionBar();
-//        displayView(mDefault_tab);
         Fragment fragmentHome = null;
         Bundle bundle = new Bundle();
         fragmentHome = new FragmentHome();

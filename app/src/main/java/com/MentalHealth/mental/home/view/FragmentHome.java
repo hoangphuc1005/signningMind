@@ -74,8 +74,6 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        handleBackPress();
-//        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(R.string.txt_home);
         setUserVisibleHint(true);
         updateHomeActionbar();
 
@@ -91,7 +89,6 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
     private void init() {
         mService = ApiUtils.getSOService();
         context = getContext();
-//        scrollingView = (ScrollView) findViewById(R.id.scrollView);
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         swipeRefreshLayout.setRefreshing(false);
         swipeRefreshLayout.setEnabled(false);
@@ -114,7 +111,6 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
     private ArrayList<Integer> randomBackGround() {
         lstImage = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
-//            lstImage.add(arrBackGround[i]);
             int k = new Random().nextInt(arrBackGround.size());
             lstImage.add(arrBackGround.get(k));
             arrBackGround.remove(k);
@@ -259,67 +255,6 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
     @Override
     public void onResume() {
         super.onResume();
-//        sharedpreferences = getContext().getSharedPreferences(MY_PREFERENCE,
-//                Context.MODE_PRIVATE);
-//        final String userID = sharedpreferences.getString(USER_ID, "");
-//        if (!userID.isEmpty()) {
-//            if (!NotificationUtils.isAppIsInBackground(getContext())) {
-//                mService.loginTime(userID, "1").enqueue(new Callback<LoginModel>() {
-//                    @Override
-//                    public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-//                        Log.e("response", response.raw().message());
-//                        if (response.raw().code() == 400) {
-//                            mService.loginTime(userID, "0").enqueue(new Callback<LoginModel>() {
-//                                @Override
-//                                public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-//                                    if (response.raw().code() == 200) {
-//                                        mService.loginTime(userID, "1");
-//                                    }
-//                                }
-//
-//                                @Override
-//                                public void onFailure(Call<LoginModel> call, Throwable t) {
-//
-//                                }
-//                            });
-//                        }
-//
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<LoginModel> call, Throwable t) {
-//
-//                    }
-//                });
-//            } else {
-//                mService.loginTime(userID, "0").enqueue(new Callback<LoginModel>() {
-//                    @Override
-//                    public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-//                        Log.e("response", response.raw().message());
-//                        if (response.raw().code() == 400) {
-//                            mService.loginTime(userID, "1").enqueue(new Callback<LoginModel>() {
-//                                @Override
-//                                public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-//                                    if (response.raw().code() == 200) {
-//                                        mService.loginTime(userID, "0");
-//                                    }
-//                                }
-//
-//                                @Override
-//                                public void onFailure(Call<LoginModel> call, Throwable t) {
-//
-//                                }
-//                            });
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<LoginModel> call, Throwable t) {
-//
-//                    }
-//                });
-//            }
-//        }
 
         handleBackPress(true);
 
@@ -328,64 +263,6 @@ public class FragmentHome extends BaseFragment implements View.OnClickListener {
     @Override
     public void onPause() {
         super.onPause();
-//        sharedpreferences = getContext().getSharedPreferences(MY_PREFERENCE,
-//                Context.MODE_PRIVATE);
-//        final String userID = sharedpreferences.getString(USER_ID, "");
-//        if (!userID.isEmpty()) {
-//            if (!NotificationUtils.isAppIsInBackground(getContext())) {
-//                mService.loginTime(userID, "1").enqueue(new Callback<LoginModel>() {
-//                    @Override
-//                    public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-//                        Log.e("response", response.raw().message());
-//                        if (response.raw().code() == 400) {
-//                            mService.loginTime(userID, "0").enqueue(new Callback<LoginModel>() {
-//                                @Override
-//                                public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-//                                    if (response.raw().code() == 200)
-//                                        mService.loginTime(userID, "1");
-//                                }
-//
-//                                @Override
-//                                public void onFailure(Call<LoginModel> call, Throwable t) {
-//
-//                                }
-//                            });
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<LoginModel> call, Throwable t) {
-//
-//                    }
-//                });
-//            } else {
-//                mService.loginTime(userID, "0").enqueue(new Callback<LoginModel>() {
-//                    @Override
-//                    public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-//                        Log.e("response", response.raw().message());
-//                        if (response.raw().code() == 400) {
-//                            mService.loginTime(userID, "1").enqueue(new Callback<LoginModel>() {
-//                                @Override
-//                                public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-//                                    if (response.raw().code() == 200)
-//                                        mService.loginTime(userID, "0");
-//                                }
-//
-//                                @Override
-//                                public void onFailure(Call<LoginModel> call, Throwable t) {
-//
-//                                }
-//                            });
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<LoginModel> call, Throwable t) {
-//
-//                    }
-//                });
-//            }
-//        }
     }
 
 

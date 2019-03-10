@@ -24,7 +24,6 @@ public class SlidingMenuAdapter extends BaseAdapter {
     private Context context;
     private List<SlidingMenuModel> items;
     private String status = "Trang chủ";
-    int count = 0;
     SharedPreferences sharedpreferences;
 
     public SlidingMenuAdapter(Context context, List<SlidingMenuModel> items) {

@@ -1,9 +1,7 @@
 package com.MentalHealth.mental.diary.model;
 
-import android.support.annotation.NonNull;
 
 import java.io.Serializable;
-import java.util.Comparator;
 
 
 public class DiaryModel implements Serializable {

@@ -17,11 +17,9 @@ import java.util.List;
 public class DBHistory extends SQLiteOpenHelper {
     private static final String TAG = "SQLite";
 
-    // Phiên bản
     private static final int DATABASE_VERSION = 3;
 
 
-    // Tên cơ sở dữ liệu.
     private static final String DATABASE_NAME = "signing_mine";
 
     public DBHistory(Context context) {
@@ -41,9 +39,6 @@ public class DBHistory extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.i(TAG, "MyDatabaseHelper.onCreate ... ");
-//        Toast.makeText(context,"db tao thanh cong",Toast.LENGTH_LONG).show();
-        // Script tạo bảng.
         String script = "CREATE TABLE " + TABLE_DIARY + "("
                 + DIARY_ID + " TEXT,"
                 + DIARY_DATE + " TEXT,"
@@ -52,21 +47,15 @@ public class DBHistory extends SQLiteOpenHelper {
                 + DIARY_YEAR + " TEXT,"
                 + DIARY_TITLE + " TEXT,"
                 + DIARY_CONTENT + " TEXT" + ")";
-        // Chạy lệnh tạo bảng.
         db.execSQL(script);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         if (newVersion > oldVersion)
-            // copyDatabase();
-            Log.i(TAG, "MyDatabaseHelper.onUpgrade ... ");
 
-        // Hủy (drop) bảng cũ nếu nó đã tồn tại.
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_DIARY);
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_DIARY);
 
-
-        // Và tạo lại.
         onCreate(db);
     }
 
@@ -82,10 +71,8 @@ public class DBHistory extends SQLiteOpenHelper {
         values.put(DIARY_TITLE, diary.getTitleOfDiary());
         values.put(DIARY_CONTENT, diary.getContentOfDiary());
 
-        // Trèn một dòng dữ liệu vào bảng.
         db.insert(TABLE_DIARY, null, values);
 
-        // Đóng kết nối database.
         db.close();
     }
 
@@ -93,7 +80,7 @@ public class DBHistory extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_DIARY, new String[]{DIARY_ID,
-                        DIARY_DATE, DIARY_DATE_OF_Month,DIARY_MONTH_OF_YEAR,DIARY_YEAR, DIARY_TITLE, DIARY_CONTENT},
+                        DIARY_DATE, DIARY_DATE_OF_Month, DIARY_MONTH_OF_YEAR, DIARY_YEAR, DIARY_TITLE, DIARY_CONTENT},
                 DIARY_ID + "=?",
                 new String[]{String.valueOf(id)}, null, null, null, null);
         if (cursor != null) {
@@ -183,8 +170,6 @@ public class DBHistory extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_DIARY, DIARY_CONTENT + " = ?",
                 new String[]{String.valueOf(diaryModel.getContentOfDiary())});
-        // db.delete(TABLE_DIARY,null,null);
-        //db.execSQL("delete  from "+ TABLE_DIARY);
         db.close();
     }
 }

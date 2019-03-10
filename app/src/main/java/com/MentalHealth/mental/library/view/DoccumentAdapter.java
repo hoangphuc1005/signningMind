@@ -44,7 +44,6 @@ public class DoccumentAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         itemViewHolder.tvTitle.setText(infoNewModel.getTitle());
         Picasso.with(context)
                 .load(Constant.URL_IMAGE + infoNewModel.getImage())
-//                .fit().centerInside()
                 .into(itemViewHolder.imgIcons);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -35,14 +35,12 @@ public class DBNotification extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.i(TAG, "MyDatabaseHelper.onCreate ...USER ");
         // Script tạo bảng.
         String script = "CREATE TABLE " + TABLE_USER + "("
                 + USER_ID + " TEXT,"
                 + USER_TITLE + " TEXT,"
                 + USER_TYPE + " TEXT"
                 + ")";
-        // Chạy lệnh tạo bảng.
         db.execSQL(script);
     }
 
@@ -66,10 +64,7 @@ public class DBNotification extends SQLiteOpenHelper {
         values.put(USER_ID, user.getId());
         values.put(USER_TITLE, user.getTitle());
         values.put(USER_TYPE, user.getType());
-//        values.put(USER_BIRTHDAY, user.getBirthday());
-        // Trèn một dòng dữ liệu vào bảng.
         db.insert(TABLE_USER, null, values);
-        // Đóng kết nối database.
         db.close();
     }
 
@@ -100,7 +95,6 @@ public class DBNotification extends SQLiteOpenHelper {
 
 
     public List<NotificationModel> getAllUsers() {
-        Log.i(TAG, "MyDatabaseHelper.getAllusers ... ");
 
         List<NotificationModel> userList = new ArrayList<NotificationModel>();
         // Select All Query
@@ -126,7 +120,6 @@ public class DBNotification extends SQLiteOpenHelper {
     }
 
     public int getUsersCount() {
-        Log.i(TAG, "MyDatabaseHelper.getusersCount ... ");
 
         String countQuery = "SELECT  * FROM " + TABLE_USER;
         SQLiteDatabase db = this.getReadableDatabase();

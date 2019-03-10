@@ -1,7 +1,5 @@
 package com.MentalHealth.mental.az.view;
 
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -13,7 +11,6 @@ import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.az.model.AZChildModel;
 import com.MentalHealth.mental.az.model.AZGroupModel;
 import com.MentalHealth.mental.az.model.AZModelDetail;
-import com.MentalHealth.mental.az.model.DataAZModel;
 import com.MentalHealth.mental.base.BaseFragment;
 import com.MentalHealth.mental.serverapi.ApiUtils;
 import com.MentalHealth.mental.serverapi.SOService;

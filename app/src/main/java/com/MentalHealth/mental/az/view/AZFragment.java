@@ -43,18 +43,11 @@ public class AZFragment extends BaseFragment implements AZAdapter.OnClickRecycle
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initView();
-        actionView();
         setTitleActionBar("Từ A đến Z");
         updateBackActionbar();
         updateBackActionbarCustomBack();
         handleBackPress();
         comeBackHomeScreen();
-    }
-
-    private void actionView() {
-//        imgWorry.setOnClickListener(this);
-//        imgBoth.setOnClickListener(this);
-//        imgStress.setOnClickListener(this);
     }
 
     private void initView() {

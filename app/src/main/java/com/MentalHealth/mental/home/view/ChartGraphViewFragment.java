@@ -8,7 +8,6 @@ import android.view.View;
 
 import com.MentalHealth.mental.R;
 import com.MentalHealth.mental.base.BaseFragment;
-import com.MentalHealth.mental.home.login.view.MyPagerAdapter;
 import com.MentalHealth.mental.menu.PagerAdapterMenu;
 
 
@@ -24,14 +23,11 @@ public class ChartGraphViewFragment extends BaseFragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-//        setUserVisibleHint(true);
         setTitleActionBar("Hướng Dẫn");
         callSOS();
         updateBackActionbarCustomBack();
-//        updateBackActionbarCustomBack();
         comeBackHomeScreen();
         handleBackPress();
-//        updateHomeActionbar();
         initChargeView();
     }
 
