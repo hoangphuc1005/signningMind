@@ -1,7 +1,6 @@
 package com.MentalHealth.mental;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,7 +19,6 @@ import com.MentalHealth.mental.library.view.VideoDiaryFragment;
 import com.MentalHealth.mental.monthinfo.view.DayDetailSlideFragment;
 import com.MentalHealth.mental.serverapi.ApiUtils;
 import com.MentalHealth.mental.serverapi.SOService;
-import com.MentalHealth.mental.servicefcm.NotificationUtils;
 import com.google.firebase.iid.FirebaseInstanceId;
 
 import me.leolin.shortcutbadger.ShortcutBadger;
@@ -30,9 +28,6 @@ import retrofit2.Response;
 
 import static com.MentalHealth.mental.home.view.MainFragment.USER_ID;
 
-//import com.appsee.Appsee;
-//import com.crashlytics.android.Crashlytics;
-////import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -53,8 +48,6 @@ public class MainActivity extends AppCompatActivity {
             count--;
             ShortcutBadger.applyCount(this, count);
         }
-//        Fabric.with(this, new Crashlytics());
-//        Appsee.start(getString(R.string.com_appsee_apikey));
 
         setContentView(R.layout.activity_main);
         Bundle bundle = getIntent().getExtras();
@@ -89,18 +82,12 @@ public class MainActivity extends AppCompatActivity {
             MainFragment mFragment = new MainFragment();
             String refreshedToken = FirebaseInstanceId.getInstance().getToken();
             Log.e("Refreshed token", refreshedToken);
-//            if (noti_live != null) {
-//                mFragment.setDefaultTab(7);
-//                SharedPreference.checkToken(MainActivity.this, idUser);
-//                SharedPreference.saveAccountHasLogin(MainActivity.this, mUserModel);
-//            }
             mFragment.setArguments(getIntent().getExtras());
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragment, mFragment)
                     .commit();
         }
 
-        //AIzaSyDopNvyH-wgUYE1suNa6Ag6AvlJBXGIwkQ
 
     }
 
